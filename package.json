@@ -1,8 +1,8 @@
 {
-  "name": "y",
+  "name": "client-home",
   "version": "1.0.0",
-  "description": "y",
-  "author": "y",
+  "description": "home website",
+  "author": "Cheney Yang",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -14,7 +14,12 @@
   },
   "dependencies": {
     "vue": "^1.0.21",
-    "babel-runtime": "^6.0.0"
+    "babel-runtime": "^6.0.0",
+    "base64-js": "^1.1.2",
+    "jquery": "^2.2.0",
+    "store": "^1.3.20",
+    "vue-resource": "^0.7.2",
+    "vue-router": "^0.7.13"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
