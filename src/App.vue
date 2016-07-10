@@ -17,7 +17,7 @@
   }
 </style>
 <template>
-  <div>
+  <div class="container">
     <app-header></app-header>
     <div class="line"></div>
     <app-navigation></app-navigation>

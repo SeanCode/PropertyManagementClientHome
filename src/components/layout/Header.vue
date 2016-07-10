@@ -6,6 +6,8 @@
 
   header > img:nth-of-type(1) {
     position: absolute;
+    width: 1200px;
+    height: 180px;
     left: 0;
     top: 0;
     z-index: -1;
@@ -20,24 +22,28 @@
   .login {
     float: right;
     margin-top: 28px;
-    font-size: 20px;
-    color: #000;
-    cursor: pointer;
   }
 
   .sign-in {
     padding-right: 10px;
     border-right: 1px solid #000;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
   }
 
   .sign-up {
     margin-left: 8px;
     margin-right: 68px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
   }
 
-  .login:hover {
+  .sign-in:hover, .sign-up:hover {
     color: #ff9a5f;
   }
+
 
   .input-group {
     position: absolute;
@@ -75,13 +81,15 @@
 </style>
 <template>
   <header>
-    <img src="../../assets/header.png" alt="logo">
+    <img src="../assets/header.png" alt="logo">
 
 
-    <span class="sign-up login">登录</span>
-    <span class="sign-in login">注册</span>
+    <div class="login">
+      <span class="sign-in">注册</span>
+      <span class="sign-up">登录</span>
+    </div>
 
-    <img src="../../assets/logo.png" alt="logo">
+    <img src="../assets/logo.png" alt="logo">
 
     <div class="input-group">
       <div class="input-outline">
