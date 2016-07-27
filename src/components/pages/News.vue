@@ -23,7 +23,7 @@
   }
 
   .window_nav span {
-    font-size: 20px;
+    font-size: 16px;
     color: #bdbdbd;
   }
 
@@ -53,7 +53,7 @@
     margin-top: 16px;
     margin-left: 18px;
     color: #000;
-    font-size: 18px;
+    font-size: 16px;
     list-style: disc;
   }
 
@@ -83,7 +83,7 @@
   }
 
   .more a span {
-    font-size: 20px;
+    font-size: 16px;
     color: #000;
   }
 

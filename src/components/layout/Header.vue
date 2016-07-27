@@ -27,7 +27,7 @@
   .sign-in {
     padding-right: 10px;
     border-right: 1px solid #000;
-    font-size: 20px;
+    font-size: 16px;
     color: #000;
     cursor: pointer;
   }
@@ -35,7 +35,7 @@
   .sign-up {
     margin-left: 8px;
     margin-right: 68px;
-    font-size: 20px;
+    font-size: px;
     color: #000;
     cursor: pointer;
   }
@@ -76,20 +76,16 @@
   .btn:focus {
     outline: none;
   }
-
-
 </style>
 <template>
   <header>
-    <img src="../assets/header.png" alt="logo">
+    <img src="../../assets/header.png" alt="logo">
+    <!--<div class="login">-->
+      <!--<span class="sign-in">注册</span>-->
+      <!--<span class="sign-up">登录</span>-->
+    <!--</div>-->
 
-
-    <div class="login">
-      <span class="sign-in">注册</span>
-      <span class="sign-up">登录</span>
-    </div>
-
-    <img src="../assets/logo.png" alt="logo">
+    <img src="../../assets/logo.png" alt="logo">
 
     <div class="input-group">
       <div class="input-outline">
