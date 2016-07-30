@@ -9,16 +9,18 @@
 
   .flag_box {
     width: 30px;
-    height: 18px;
+    height: 16px;
     border-radius: 2px;
-    line-height: 18px;
+    line-height: 12px;
     text-align: center;
     background-color: #ff3b1b;
   }
 
   .flag_box span {
     color: #fff;
-    font-size: 13px;
+    font-size: 10px;
+    transform:scale(0.875);
+    -webkit-text-size-adjust:none;
   }
 
   .triangle {
@@ -38,7 +40,7 @@
     height: 0;
     border-right: 4px solid transparent;
     border-top: 10px solid #fff;
-    z-index: 100;
+    z-index: 99;
   }
 
 

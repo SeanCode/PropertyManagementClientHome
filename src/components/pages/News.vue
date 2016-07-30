@@ -50,9 +50,9 @@
   }
 
   .news_list {
-    margin-top: 16px;
+    margin-top: 12px;
     margin-left: 18px;
-    color: #000;
+    color: #666666;
     font-size: 16px;
     list-style: disc;
   }
@@ -67,7 +67,7 @@
 
   .news_list a {
     position: relative;
-    color: #000;
+    color: #666666;
   }
 
   .news_date {
@@ -84,9 +84,8 @@
 
   .more a span {
     font-size: 16px;
-    color: #000;
+    color: #666666;
   }
-
 
 </style>
 <template>
@@ -113,6 +112,9 @@
           <app-flag></app-flag>
         </a><span class="news_date">2015-11-11</span></li>
         <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告</span>
+          <app-flag></app-flag>
+        </a><span class="news_date">2015-11-11</span></li>
+        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻</span>
           <app-flag></app-flag>
         </a><span class="news_date">2015-11-11</span></li>
         <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻</span>

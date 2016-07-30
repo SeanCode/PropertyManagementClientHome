@@ -62,11 +62,11 @@
     color: #fff;
   }
 
-  .service_active > .service_icon {
+  .service_item:hover > .service_icon {
     background-color: #fa9546;
   }
 
-  .service_active > p {
+  .service_item:hover > p {
     color: #fa9546;
   }
 
@@ -84,7 +84,7 @@
       </ul>
     </div>
     <div class="service_content">
-      <div class="prev control" v-on:click="turnLeft"><i class="iconfont control_active">&#xe604</i></div>
+      <div class="prev control" v-on:click="turnLeft"><i class="iconfont">&#xe604</i></div>
       <div class="next control" v-on:click="turnRight"><i class="iconfont">&#xe605</i></div>
 
       <div class="service_item" data-index="1">

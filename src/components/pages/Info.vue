@@ -36,7 +36,9 @@
         <li class="news_list"><a href="javascript:;"><span>这是最新消息最新消息最新消息</span>
           <app-flag></app-flag>
         </a><span class="news_date">2015-11-11</span></li>
-
+        <li class="news_list"><a href="javascript:;"><span>这是最新消息最新消息最新消息</span>
+          <app-flag></app-flag>
+        </a><span class="news_date">2015-11-11</span></li>
       </ul>
     </div>
     <div class="more">

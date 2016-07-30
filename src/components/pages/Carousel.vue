@@ -1,5 +1,4 @@
 <style>
-
   #carousel-container {
     float: left;
     width: 684px;

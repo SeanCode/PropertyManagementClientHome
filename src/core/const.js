@@ -35,7 +35,5 @@ export default {
   },
 
   TYPE: {
-    OWNER_TYPE_USER: 1,
-    OWNER_TYPE_INSTITUTION: 2
   }
 }
