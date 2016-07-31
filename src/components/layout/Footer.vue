@@ -51,7 +51,7 @@
       <li>重庆邮电大学</li>
       <li>重庆邮电大学</li>
       <li>重庆邮电大学</li>
-      <li id="noneBorder">重庆邮电大学</li>
+      <li id="noneBorder"><a v-link="{ path: '/dashboard/index'}">后台管理系统</a></li>
     </ul>
     <span>Copyright @ {{year}} WYCLZX All Rights Reserved</span>
     <span>重庆邮电大学物业管理中心版权所有</span>

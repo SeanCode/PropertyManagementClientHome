@@ -1,6 +1,8 @@
 /**
  * Created by Cheney Yang <yangcheng0816@gmail.com> on 16/7/31.
  */
+import Core from '../core/core'
+
 export default {
   getParams: getParams,
   getInstitutionList: getInstitutionList
@@ -26,7 +28,5 @@ function getParams (params, callback) {
 }
 
 function getInstitutionList (context, type, callback) {
-  setTimeout(() => {
-    callback([])
-  })
+  Core.Api.ORG.getOrgSettings().then((data) => { callback(data.intro_list) }, (data) => { Core.Toast.error(context, data.message) })
 }

@@ -3,6 +3,7 @@
  */
 import Const from './const'
 import Log from './log'
+import Config from './config'
 //  import Data from './data'
 //  import Util from './util'
 import Vue from 'vue'
@@ -15,11 +16,18 @@ export default {
         password: password
       })
     }
+  },
+  ORG: {
+    getOrgSettings: function () {
+      return post(Const.NET.API.ORG_SETTINGS, {})
+    }
   }
 }
 
 function post (api, data, requestHeaders, raw) {
-  var url = Const.NET.END_POINT + api
+  var endPoint = Config.IS_DEBUG ? Const.NET.END_POINT_DEBUG : Const.NET.END_POINT_RELEASE
+  var url = endPoint + Const.NET.API_PATH + api
+
   Log.d(url + '?' + transformObjectToUrlencodedData(data))
 
   return Vue.http.post(url, transformObjectToUrlencodedData(data), {

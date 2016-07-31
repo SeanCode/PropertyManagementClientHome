@@ -3,9 +3,12 @@
  */
 export default {
   NET: {
-    END_POINT: 'http://localhost:8080/api/private/v1',
+    END_POINT_RELEASE: 'http://202.202.43.93:8080',
+    END_POINT_DEBUG: 'http://localhost:8080',
+    API_PATH: '/api/public/v1',
     API: {
-      ADMIN_LOGIN: '/admin/login'
+      ADMIN_LOGIN: '/admin/login',
+      ORG_SETTINGS: '/org/intro-list'
     }
   },
 

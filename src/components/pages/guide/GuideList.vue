@@ -2,7 +2,7 @@
   <div>
     <div><span>您现在的位置: 服务指南 > </span><span class="title_span">{{title}}</span></div>
     <div class="divider"></div>
-    <div>
+    <div class="list_content">
       <div class="title_box">
         <div class="header">
           <span>服务指南</span>
@@ -18,6 +18,11 @@
   </div>
 </template>
 <style>
+
+  .list_content {
+    display: inline-block;
+  }
+
   .divider {
     background-color: #bfe7df;
     height: 1px;
@@ -27,6 +32,10 @@
 
   .title_span {
     color: #ff9a5f;
+  }
+
+  .clear {
+    clear: both;
   }
 
   .title_box {
@@ -39,6 +48,7 @@
     display: inline-block;
     margin: 16px 0;
     width: 160px;
+    float: left;
   }
 
   .title_box .header {
@@ -66,6 +76,13 @@
 
   .title_active {
     color: #ff9a5f;
+  }
+
+  .title_content {
+    display: inline;
+    margin: 24px;
+    float: left;
+    width: 996px;
   }
 </style>
 <script>
