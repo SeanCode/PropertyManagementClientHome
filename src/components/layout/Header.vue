@@ -6,7 +6,7 @@
 
   header > img:nth-of-type(1) {
     position: absolute;
-    width: 1200px;
+    width: 1204px;
     height: 180px;
     left: 0;
     top: 0;
@@ -87,14 +87,14 @@
 
     <img src="../../assets/logo.png" alt="logo">
 
-    <div class="input-group">
-      <div class="input-outline">
-        <input type="text" class="form-control" placeholder="请输入关键字">
-      </div>
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">搜索</button>
-      </span>
-    </div>
+    <!--<div class="input-group">-->
+      <!--<div class="input-outline">-->
+        <!--<input type="text" class="form-control" placeholder="请输入关键字">-->
+      <!--</div>-->
+      <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-default" type="button">搜索</button>-->
+      <!--</span>-->
+    <!--</div>-->
   </header>
 </template>
 <script>

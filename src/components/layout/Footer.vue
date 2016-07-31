@@ -53,14 +53,16 @@
       <li>重庆邮电大学</li>
       <li id="noneBorder">重庆邮电大学</li>
     </ul>
-    <span>Copyright @ 2015 WYCLZX All Rights Reserved</span>
+    <span>Copyright @ {{year}} WYCLZX All Rights Reserved</span>
     <span>重庆邮电大学物业管理中心版权所有</span>
   </div>
 </template>
 <script>
   export default{
     data () {
-      return {}
+      return {
+        year: 2016
+      }
     },
     components: {}
   }

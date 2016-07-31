@@ -90,7 +90,7 @@
         &#xe605;</i></div>
       <div v-bind:style="{ width: refreshWidth + 'px' }" class="style_box">
         <div class="style_item" v-on:mouseover="showCover" v-on:mouseout="hiddenCover($event)">
-          <img src="../../assets/us_1.png" alt="us_3">
+          <img src="../../../assets/us_1.png" alt="us_3">
           <div class="show_control">
             <div class="item_cover"></div>
             <h2>物业写真</h2>
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="style_item" v-on:mouseover="showCover" v-on:mouseout="hiddenCover($event)">
-          <img src="../../assets/us_5.png" alt="us_5">
+          <img src="../../../assets/us_5.png" alt="us_5">
           <div class="show_control">
             <div class="item_cover"></div>
             <h2>物业写真</h2>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="style_item" v-on:mouseover="showCover" v-on:mouseout="hiddenCover($event)">
-          <img src="../../assets/us_2.png" alt="us_2">
+          <img src="../../../assets/us_2.png" alt="us_2">
           <div class="show_control">
             <div class="item_cover"></div>
             <h2>物业写真</h2>
@@ -114,7 +114,7 @@
           </div>
         </div>
         <div class="style_item" v-on:mouseover="showCover" v-on:mouseout="hiddenCover($event)">
-          <img src="../../assets/us_3.png" alt="us_3">
+          <img src="../../../assets/us_3.png" alt="us_3">
           <div class="show_control">
             <div class="item_cover"></div>
             <h2>物业写真</h2>
@@ -122,7 +122,7 @@
           </div>
         </div>
         <div class="style_item" v-on:mouseover="showCover" v-on:mouseout="hiddenCover($event)">
-          <img src="../../assets/us_4.png" alt="us_4">
+          <img src="../../../assets/us_4.png" alt="us_4">
           <div class="show_control">
             <div class="item_cover"></div>
             <h2>物业写真</h2>
@@ -136,7 +136,7 @@
 </template>
 
 <script>
-  import Flag from './Flag.vue'
+  import Flag from '../../widgets/Flag.vue'
 
   //  从后台获取到物业风采条目数
   var items = 5

@@ -37,7 +37,7 @@
     width: 100%;
   }
 
-  .page-navs li ul li{
+  .page-navs li ul li {
     width: 100%;
     cursor: pointer;
   }
@@ -114,7 +114,8 @@
     background: #e46f0d;
   }
 
-  .nav-active {
+  .active {
+    background: #e46f0d;
     cursor: pointer;
   }
 </style>
@@ -122,106 +123,92 @@
 <template>
   <nav class="page-nav">
     <ul class="wrap page-navs">
-      <li class="nav-active"><a href="/index">首页</a>
+      <li v-link-active><a v-link="{ path: '/home/index' }">首页</a>
       </li>
-      <li><a>服务指南</a>
+      <li v-link-active><a v-link="{ path: '/home/guide' }">服务指南</a>
         <ul class="page-navs-inner">
           <li class="title"><a>服务指南</a>
           </li>
-          <li class="btwhite"><a>政策法规</a>
+          <li class="btwhite"><a v-link="{ path: '/home/guide/list?type=1' }">政策法规</a>
           </li>
-          <li><a>工作简报</a>
+          <li><a v-link="{ path: '/home/guide/list?type=2' }">工作简报</a>
           </li>
-          <li><a>流程指南</a>
+          <li><a v-link="{ path: '/home/guide/list?type=3' }">流程指南</a>
           </li>
-          <li><a>相关下载</a>
-          </li>
-          <li><a>网上保修</a>
+          <li><a v-link="{ path: '/home/guide/list?type=4' }">相关下载</a>
           </li>
         </ul>
       </li>
-      <li><a>机构设置</a>
+      <li v-link-active><a v-link="{ path: '/home/institution' }">机构设置</a>
         <ul class="page-navs-inner">
           <li class="title"><a>机构设置</a>
           </li>
-          <li class="mtwhite"><a>中心简介</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/institution?type=1' }">中心简介</a>
           </li>
-          <li><a>综合管理部</a>
+          <li><a v-link="{ path: '/home/institution?type=2' }">综合管理部</a>
           </li>
-          <li><a>工程维修部</a>
+          <li><a v-link="{ path: '/home/institution?type=3' }">工程维修部</a>
           </li>
-          <li><a>物业管理部</a>
+          <li><a v-link="{ path: '/home/institution?type=4' }">物业管理部</a>
           </li>
-          <li><a>能源保障部</a>
+          <li><a v-link="{ path: '/home/institution?type=5' }">能源保障部</a>
           </li>
-          <li><a>教学服务部</a>
+          <li><a v-link="{ path: '/home/institution?type=6' }">教学服务部</a>
           </li>
         </ul>
       </li>
-      <li><a>新闻公告</a>
+      <li v-link-active><a v-link="{ path: '/home/news' }">新闻公告</a>
         <ul class="page-navs-inner">
           <li class="title"><a>新闻公告</a>
           </li>
-          <li class="mtwhite"><a>新闻热点</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/news/list?type=1' }">新闻热点</a>
           </li>
-          <li><a>公示公告</a>
+          <li><a v-link="{ path: '/home/news/list?type=2' }">公示公告</a>
           </li>
         </ul>
       </li>
-      <li>
-        <a>物业服务</a>
+      <li v-link-active><a v-link="{ path: '/home/service' }">物业服务</a>
         <ul class="page-navs-inner">
           <li class="title"><a>物业服务</a>
           </li>
-          <li class="mtwhite"><a>水电气查询</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/service?type=1' }">水电气查询</a>
           </li>
-          <li><a>物业费查询</a>
+          <li><a v-link="{ path: '/home/service?type=2' }">物业费查询</a>
           </li>
         </ul>
       </li>
-      <li>
-        <a>物业风采</a>
+      <li v-link-active><a v-link="{ path: '/home/picture' }">物业风采</a>
         <ul class="page-navs-inner">
           <li class="title"><a>物业风采</a>
           </li>
-          <li class="mtwhite"><a>领导关怀</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/picture/covers?type=1' }">领导关怀</a>
           </li>
-          <li><a>荣誉奖励</a>
+          <li><a v-link="{ path: '/home/picture/covers?type=2' }">荣誉奖励</a>
           </li>
-          <li><a>会议纪实</a>
+          <li><a v-link="{ path: '/home/picture/covers?type=3' }">会议纪实</a>
           </li>
-          <li><a>物业动态</a>
+          <li><a v-link="{ path: '/home/picture/covers?type=4' }">物业动态</a>
           </li>
-          <li><a>校园绿化</a>
+          <li><a v-link="{ path: '/home/picture/covers?type=5' }">校园绿化</a>
           </li>
         </ul>
       </li>
-      <li>
-        <a>安检日志</a>
+      <li v-link-active><a v-link="{ path: '/home/log' }">安检日志</a>
         <ul class="page-navs-inner">
           <li class="title"><a>安检日志</a>
           </li>
-          <li class="mtwhite"><a>特种设备</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/log/list?type=1' }">特种设备</a>
           </li>
-          <li><a>消防安全</a>
+          <li><a v-link="{ path: '/home/log/list?type=2' }">消防安全</a>
           </li>
-          <li><a>教学巡查</a>
+          <li><a v-link="{ path: '/home/log/list?type=3' }">教学巡查</a>
           </li>
-          <li><a>公寓巡查</a>
+          <li><a v-link="{ path: '/home/log/list?type=4' }">公寓巡查</a>
           </li>
-          <li><a>物业巡查</a>
+          <li><a v-link="{ path: '/home/log/list?type=5' }">物业巡查</a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
-
 </template>
-<script>
-  export default{
-    data () {
-      return {}
-    },
-    methods: {}
-  }
-</script>

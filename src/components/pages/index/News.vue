@@ -1,7 +1,7 @@
 <style>
   .window_container {
     float: left;
-    width: 492px;
+    width: 496px;
     height: 360px;
     margin-left: 24px;
     border-bottom: 2px solid #bababa;
@@ -53,12 +53,8 @@
     margin-top: 12px;
     margin-left: 18px;
     color: #666666;
-    font-size: 16px;
+    font-size: 15px;
     list-style: disc;
-  }
-
-  .news_list span:nth-of-type(1) {
-    display: inline-block;
   }
 
   .news_list a:hover {
@@ -93,8 +89,8 @@
   <div class="window_container">
     <div class="window_header">
       <ul>
-        <li class="window_nav window_nav_active"><span>新闻公告</span></li>
-        <li class="window_nav"><span>相关下载</span></li>
+        <li class="window_nav" v-bind:class="{ 'window_nav_active': showNews }" @click="showNewsList()"><span>新闻公告</span></li>
+        <li class="window_nav" v-bind:class="{ 'window_nav_active': showDownload }" @click="showDownloadList()"><span>相关下载</span></li>
       </ul>
     </div>
     <div class="news_content">
@@ -132,13 +128,28 @@
 </template>
 
 <script>
-  import Flag from './Flag.vue'
+  import Flag from '../../widgets/Flag.vue'
   export default{
     data () {
-      return {}
+      return {
+        showNews: true,
+        showDownload: false
+      }
     },
     components: {
       'app-flag': Flag
+    },
+    methods: {
+      showNewsList: function () {
+        this.showNews = true
+        this.showDownload = false
+        console.log('show news list')
+      },
+      showDownloadList: function () {
+        this.showNews = false
+        this.showDownload = true
+        console.log('show download list')
+      }
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <style>
   .service_container {
     float: left;
-    width: 492px;
+    width: 496px;
     height: 258px;
     margin-top: 20px;
     margin-left: 24px;
@@ -20,6 +20,10 @@
   .control > i {
     font-size: 40px;
     color: #d9d9d9;
+  }
+
+  .control > i:hover {
+    color: #fa9546;
   }
 
   .prev {
