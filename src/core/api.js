@@ -21,6 +21,61 @@ export default {
     getOrgSettings: function () {
       return post(Const.NET.API.ORG_SETTINGS, {})
     }
+  },
+  ARTICLE: {
+    getLatest: function () {
+      return post(Const.NET.API.ARTICLE_LATEST, {})
+    },
+    getGuideProcessList: function (page) {
+      return post(Const.NET.API.ARTICLE_GUIDE_PROCESS_LIST, {
+        page: page
+      })
+    },
+    getGuideWorkList: function (page) {
+      return post(Const.NET.API.ARTICLE_GUIDE_WORK_LIST, {
+        page: page
+      })
+    },
+    getGuideRuleList: function (page) {
+      return post(Const.NET.API.ARTICLE_GUIDE_RULE_LIST, {
+        page: page
+      })
+    },
+    getGuideDownloadList: function (page) {
+      return post(Const.NET.API.ARTICLE_GUIDE_DOWNLOAD_LIST, {
+        page: page
+      })
+    },
+    getNewsHotList: function (page) {
+      return post(Const.NET.API.ARTICLE_NEWS_HOT_LIST, {
+        page: page
+      })
+    },
+    getNewsPostList: function (page) {
+      return post(Const.NET.API.ARTICLE_NEWS_POST_LIST, {
+        page: page
+      })
+    },
+    getLogDeviceList: function (page) {
+      return post(Const.NET.API.ARTICLE_LOG_DEVICE_LIST, {
+        page: page
+      })
+    },
+    getLogDepartmentList: function (page) {
+      return post(Const.NET.API.ARTICLE_LOG_DEPARTMENT_LIST, {
+        page: page
+      })
+    },
+    getLogTeachingList: function (page) {
+      return post(Const.NET.API.ARTICLE_LOG_TEACHING_LIST, {
+        page: page
+      })
+    },
+    getLogPropertyList: function (page) {
+      return post(Const.NET.API.ARTICLE_LOG_PROPERTY_LIST, {
+        page: page
+      })
+    }
   }
 }
 

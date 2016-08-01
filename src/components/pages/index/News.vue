@@ -78,9 +78,17 @@
     float: right;
   }
 
+  .more a:hover {
+    color: #ff9a5f;
+  }
+
   .more a span {
     font-size: 16px;
     color: #666666;
+  }
+
+  .more a span:hover {
+    color: #ff9a5f;
   }
 
 </style>
@@ -89,33 +97,22 @@
   <div class="window_container">
     <div class="window_header">
       <ul>
-        <li class="window_nav" v-bind:class="{ 'window_nav_active': showNews }" @click="showNewsList()"><span>新闻公告</span></li>
-        <li class="window_nav" v-bind:class="{ 'window_nav_active': showDownload }" @click="showDownloadList()"><span>相关下载</span></li>
+        <li class="window_nav" v-bind:class="{ 'window_nav_active': showNews }" @click="showNewsList()">
+          <span>新闻公告</span></li>
+        <li class="window_nav" v-bind:class="{ 'window_nav_active': showDownload }" @click="showDownloadList()"><span>相关下载</span>
+        </li>
       </ul>
     </div>
     <div class="news_content">
       <ul>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻公告</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
-        <li class="news_list"><a href="javascript:;"><span>这是新闻公告新闻公告新闻</span>
-          <app-flag></app-flag>
-        </a><span class="news_date">2015-11-11</span></li>
+        <li class="news_list" v-for="article in articleList">
+          <div v-if="$index < 7">
+            <a href="javascript:;"><span>{{article.title}}</span>
+              <app-flag v-if="article.is_new"></app-flag>
+            </a>
+            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+          </div>
+        </li>
       </ul>
 
     </div>
@@ -128,27 +125,39 @@
 </template>
 
 <script>
+  import Service from '../../../service/home'
   import Flag from '../../widgets/Flag.vue'
+
   export default{
     data () {
       return {
         showNews: true,
-        showDownload: false
+        showDownload: false,
+        articleList: []
       }
     },
     components: {
       'app-flag': Flag
     },
+    ready () {
+      Service.getNewsPostList(this, (list) => {
+        this.articleList = list
+      })
+    },
     methods: {
       showNewsList: function () {
         this.showNews = true
         this.showDownload = false
-        console.log('show news list')
+        Service.getNewsPostList(this, (list) => {
+          this.articleList = list
+        })
       },
       showDownloadList: function () {
         this.showNews = false
         this.showDownload = true
-        console.log('show download list')
+        Service.getGuideDownloadList(this, (list) => {
+          this.articleList = list
+        })
       }
     }
   }

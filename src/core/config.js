@@ -3,5 +3,5 @@
  */
 export default {
   ROUTE_LIST_GUEST_CAN_VISIT: ['/login'],
-  IS_DEBUG: false
+  IS_DEBUG: true
 }
