@@ -8,7 +8,7 @@ export default {
   getGuideProcessList: getGuideProcessList,
   getGuideRuleList: getGuideRuleList,
   getGuideDownloadList: getGuideDownloadList,
-  getNewsPostList: getNewsPostList
+  getNewsAllList: getNewsAllList
 }
 
 function getLatestArticles (context, cb) {
@@ -43,8 +43,8 @@ function getGuideDownloadList (context, cb) {
   })
 }
 
-function getNewsPostList (context, cb) {
-  Core.Api.ARTICLE.getNewsPostList(0).then((data) => {
+function getNewsAllList (context, cb) {
+  Core.Api.ARTICLE.getNewsAllList(0).then((data) => {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)

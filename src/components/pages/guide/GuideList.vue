@@ -11,9 +11,18 @@
           <li v-for="title in list" @click="onTitleListClicked($index)" v-bind:class="{ 'title_active': $index===(type-1) }">{{title}}</li>
         </ul>
       </div>
-      <div>
-
+      <div class="news_list_container">
+        <li class="news_list" v-for="article in guideList">
+          <div>
+            <a href="javascript:;"><span>{{article.title}}</span>
+              <app-flag v-if="article.is_new"></app-flag>
+            </a>
+            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+            <span class="news_author">发布者: {{article.admin ? article.admin.name : ''}} </span>
+          </div>
+        </li>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 </template>
@@ -78,11 +87,43 @@
     color: #ff9a5f;
   }
 
-  .title_content {
+  .news_date {
+    float: right;
+    width: 80px;
+  }
+
+  .news_author {
+    float: right;
+    margin-right: 12px;
+  }
+
+  .news_list_container {
     display: inline;
     margin: 24px;
     float: left;
     width: 996px;
+  }
+
+  .news_list_container li {
+    border-bottom:2px dashed #848484;
+  }
+
+  .news_list_container .news_list {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    margin-left: 18px;
+    color: #666666;
+    font-size: 15px;
+    list-style: disc;
+  }
+
+  .news_list_container .news_list a:hover {
+    color: #ff9a5f;
+  }
+
+  .news_list_container .news_list a {
+    position: relative;
+    color: #666666;
   }
 </style>
 <script>
@@ -106,7 +147,6 @@
         })
         Service.getGuideList(this, type, (list) => {
           this.guideList = list
-          console.log(this.guideList.length)
         })
       }
     },
@@ -127,7 +167,6 @@
         // network
         Service.getGuideList(this, this.type, (list) => {
           this.guideList = list
-          console.log(this.guideList.length)
         })
       }
     }

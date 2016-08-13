@@ -1,6 +1,8 @@
 /**
  * Created by Cheney Yang <yangcheng0816@gmail.com> on 16/7/31.
  */
+import Core from '../core/core'
+
 export default {
   getParams: getParams,
   getGuideList: getGuideList
@@ -26,7 +28,53 @@ function getParams (params, callback) {
 }
 
 function getGuideList (context, type, callback) {
-  setTimeout(() => {
-    callback([])
+  switch (parseInt(type)) {
+    case 1:
+      getGuideRuleList(context, callback)
+      break
+    case 2:
+      getGuideWorkList(context, callback)
+      break
+    case 3:
+      getGuideProcessList(context, callback)
+      break
+    case 4:
+      getGuideDownloadList(context, callback)
+      break
+    default:
+      getGuideRuleList(context, callback)
+      break
+  }
+}
+
+function getGuideProcessList (context, cb) {
+  Core.Api.ARTICLE.getGuideProcessList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
+  })
+}
+
+function getGuideRuleList (context, cb) {
+  Core.Api.ARTICLE.getGuideRuleList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
+  })
+}
+
+function getGuideDownloadList (context, cb) {
+  Core.Api.ARTICLE.getGuideDownloadList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
+  })
+}
+
+function getGuideWorkList (context, cb) {
+  Core.Api.ARTICLE.getGuideWorkList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
   })
 }

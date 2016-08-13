@@ -16,6 +16,7 @@ export default {
       ARTICLE_GUIDE_DOWNLOAD_LIST: '/article/guide-download-list',
       ARTICLE_NEWS_HOT_LIST: '/article/news-hot-list',
       ARTICLE_NEWS_POST_LIST: '/article/news-post-list',
+      ARTICLE_NEWS_ALL_LIST: '/article/news-all-list',
       ARTICLE_LOG_DEVICE_LIST: '/article/log-device-list',
       ARTICLE_LOG_TEACHING_LIST: '/article/log-teaching-list',
       ARTICLE_LOG_DEPARTMENT_LIST: '/article/log-department-list',

@@ -11,9 +11,18 @@
           <li v-for="title in list" @click="onTitleListClicked($index)" v-bind:class="{ 'title_active': $index===(type-1) }">{{title}}</li>
         </ul>
       </div>
-      <div>
-
+      <div class="news_list_container">
+        <li class="news_list" v-for="article in logList">
+          <div>
+            <a href="javascript:;"><span>{{article.title}}</span>
+              <app-flag v-if="article.is_new"></app-flag>
+            </a>
+            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+            <span class="news_author">发布者: {{article.admin ? article.admin.name : ''}} </span>
+          </div>
+        </li>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 </template>
@@ -40,7 +49,6 @@
         })
         Service.getLogList(this, type, (list) => {
           this.logList = list
-          console.log(this.logList.length)
         })
       }
     },
@@ -56,10 +64,8 @@
       onTitleListClicked: function (index) {
         this.title = this.list[index]
         this.type = index + 1
-        // network
         Service.getLogList(this, this.type, (list) => {
           this.logList = list
-          console.log(this.logList.length)
         })
       }
     }

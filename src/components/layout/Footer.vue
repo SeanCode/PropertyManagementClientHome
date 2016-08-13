@@ -35,6 +35,14 @@
     color: #ff9a5f;
   }
 
+  .footerContainer ul li a {
+    color: #848484;
+  }
+
+  .footerContainer ul li a:hover {
+    color: #ff9a5f;
+  }
+
   #noneBorder {
     border-right: none;
   }
@@ -45,13 +53,13 @@
 </style>
 <template>
   <div class="footerContainer">
-    <p>三星服务热线: 62461241</p>
+    <p>三XIN服务热线: 62461241</p>
     <ul>
       <li>重庆邮电大学</li>
       <li>重庆邮电大学</li>
       <li>重庆邮电大学</li>
       <li>重庆邮电大学</li>
-      <li id="noneBorder"><a v-link="{ path: '/dashboard/index'}">后台管理系统</a></li>
+      <li id="noneBorder"><a href="http://202.202.43.93/dashboard/index">后台管理系统</a></li>
     </ul>
     <span>Copyright @ {{year}} WYCLZX All Rights Reserved</span>
     <span>重庆邮电大学物业管理中心版权所有</span>

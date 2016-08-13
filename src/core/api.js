@@ -56,6 +56,11 @@ export default {
         page: page
       })
     },
+    getNewsAllList: function (page) {
+      return post(Const.NET.API.ARTICLE_NEWS_ALL_LIST, {
+        page: page
+      })
+    },
     getLogDeviceList: function (page) {
       return post(Const.NET.API.ARTICLE_LOG_DEVICE_LIST, {
         page: page

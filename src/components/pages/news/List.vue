@@ -11,9 +11,18 @@
           <li v-for="title in list" @click="onTitleListClicked($index)" v-bind:class="{ 'title_active': $index===(type-1) }">{{title}}</li>
         </ul>
       </div>
-      <div>
-
+      <div class="news_list_container">
+        <li class="news_list" v-for="article in newsList">
+          <div>
+            <a href="javascript:;"><span>{{article.title}}</span>
+              <app-flag v-if="article.is_new"></app-flag>
+            </a>
+            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+            <span class="news_author">发布者: {{article.admin ? article.admin.name : ''}} </span>
+          </div>
+        </li>
       </div>
+      <div class="clear"></div>
     </div>
   </div>
 </template>
@@ -26,21 +35,27 @@
     route: {
       data (transition) {
         var type
+        var list
+        var title
+        var newsList
         Service.getParams(transition.to.query, (err, message) => {
           if (err) {
             console.log(err)
           } else {
             type = message.type
-            transition.next({
-              title: message.title,
-              list: message.list,
-              type: message.type
-            })
+            list = message.list
+            title = message.title
           }
-        })
-        Service.getNewsList(this, type, (list) => {
-          this.newsList = list
-          console.log(this.newsList.length)
+          console.log('type: ' + type)
+          Service.getNewsList(this, type, (nList) => {
+            newsList = nList
+            transition.next({
+              title: title,
+              list: list,
+              type: type,
+              newsList: newsList
+            })
+          })
         })
       }
     },
@@ -59,7 +74,6 @@
         // network
         Service.getNewsList(this, this.type, (list) => {
           this.newsList = list
-          console.log(this.newsList.length)
         })
       }
     }

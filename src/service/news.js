@@ -1,6 +1,8 @@
 /**
  * Created by Cheney Yang <yangcheng0816@gmail.com> on 16/7/31.
  */
+import Core from '../core/core'
+
 export default {
   getParams: getParams,
   getNewsList: getNewsList
@@ -27,7 +29,31 @@ function getParams (params, callback) {
 }
 
 function getNewsList (context, type, callback) {
-  setTimeout(() => {
-    callback([])
+  switch (parseInt(type)) {
+    case 1:
+      getNewsHotList(context, callback)
+      break
+    case 2:
+      getNewsPostList(context, callback)
+      break
+    default:
+      getNewsHotList(context, callback)
+      break
+  }
+}
+
+function getNewsHotList (context, cb) {
+  Core.Api.ARTICLE.getNewsHotList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
+  })
+}
+
+function getNewsPostList (context, cb) {
+  Core.Api.ARTICLE.getNewsPostList(0).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
   })
 }

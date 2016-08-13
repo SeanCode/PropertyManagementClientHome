@@ -27,7 +27,7 @@
     </div>
     <div class="info_content">
       <ul>
-        <li class="news_list" v-for="article in articleList">
+        <li class="news_index_list" v-for="article in articleList">
           <div v-if="$index < 5">
             <a href="javascript:;"><span>{{article.title}}</span>
               <app-flag v-if="article.is_new"></app-flag>
@@ -38,7 +38,7 @@
       </ul>
     </div>
     <div class="more">
-      <a href="javascript:;"><span>更多>></span></a>
+      <a href="javascript:;" v-link='moreLink()'><span>更多>></span></a>
     </div>
   </div>
 </template>
@@ -88,6 +88,17 @@
         Service.getGuideRuleList(this, (list) => {
           this.articleList = list
         })
+      },
+      moreLink: function () {
+        var link = ''
+        if (this.showLatest) {
+          link = '/home/guide/list?type=2'
+        } else if (this.showPrompt) {
+          link = '/home/guide/list?type=3'
+        } else if (this.showRules) {
+          link = '/home/guide/list?type=1'
+        }
+        return link
       }
     }
   }

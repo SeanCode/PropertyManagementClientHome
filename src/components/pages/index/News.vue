@@ -43,13 +43,13 @@
     color: #ff9a5f;
   }
 
-  .news_content {
+  .news_index_content {
     overflow: hidden;
     margin-top: 10px;
     height: 244px;
   }
 
-  .news_list {
+  .news_index_list {
     margin-top: 12px;
     margin-left: 18px;
     color: #666666;
@@ -57,16 +57,16 @@
     list-style: disc;
   }
 
-  .news_list a:hover {
+  .news_index_list a:hover {
     color: #ff9a5f;
   }
 
-  .news_list a {
+  .news_index_list a {
     position: relative;
     color: #666666;
   }
 
-  .news_date {
+  .news_index_date {
     float: right;
   }
 
@@ -103,21 +103,21 @@
         </li>
       </ul>
     </div>
-    <div class="news_content">
+    <div class="news_index_content">
       <ul>
-        <li class="news_list" v-for="article in articleList">
+        <li class="news_index_list" v-for="article in articleList">
           <div v-if="$index < 7">
             <a href="javascript:;"><span>{{article.title}}</span>
               <app-flag v-if="article.is_new"></app-flag>
             </a>
-            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+            <span class="news_index_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
           </div>
         </li>
       </ul>
 
     </div>
     <div class="more">
-      <a href="javascript:;"><span>更多>></span></a>
+      <a href="javascript:;" v-link='moreLink()'><span>更多>></span></a>
     </div>
   </div>
 
@@ -140,7 +140,7 @@
       'app-flag': Flag
     },
     ready () {
-      Service.getNewsPostList(this, (list) => {
+      Service.getNewsAllList(this, (list) => {
         this.articleList = list
       })
     },
@@ -148,7 +148,7 @@
       showNewsList: function () {
         this.showNews = true
         this.showDownload = false
-        Service.getNewsPostList(this, (list) => {
+        Service.getNewsAllList(this, (list) => {
           this.articleList = list
         })
       },
@@ -158,6 +158,15 @@
         Service.getGuideDownloadList(this, (list) => {
           this.articleList = list
         })
+      },
+      moreLink: function () {
+        var link = ''
+        if (this.showNews) {
+          link = '/home/news/list?type=1'
+        } else if (this.showDownload) {
+          link = '/home/guide/list?type=4'
+        }
+        return link
       }
     }
   }
