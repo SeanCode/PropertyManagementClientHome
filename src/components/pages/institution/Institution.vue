@@ -13,6 +13,7 @@
           </li>
         </ul>
       </div>
+      <div class="empty_title_box"></div>
       <div class="news_list_container">
         {{{orgSetting.content}}}
       </div>

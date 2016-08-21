@@ -8,8 +8,8 @@ import ArticleList from '../components/pages/article/List.vue'
 import ArticleContent from '../components/pages/article/Content.vue'
 import Institution from '../components/pages/institution/Institution.vue'
 import Service from '../components/pages/service/Service.vue'
-import GalleryCoverGrid from '../components/pages/picture/GalleryCoverGrid.vue'
-import GalleryPhotoGrid from '../components/pages/picture/GalleryPhotoGrid.vue'
+import Cover from '../components/pages/picture/Cover.vue'
+import Photo from '../components/pages/picture/Photo.vue'
 import Core from '../core/core'
 
 export function configRouter (router) {
@@ -36,10 +36,10 @@ export function configRouter (router) {
           component: Institution
         },
         '/picture/covers': {
-          component: GalleryCoverGrid
+          component: Cover
         },
         '/picture/photos': {
-          component: GalleryPhotoGrid
+          component: Photo
         },
         '/articles/:type': {
           component: ArticleList

@@ -29,7 +29,7 @@
   }
 
   .news_content {
-    margin-top: 12px;
+    margin: 12px 0;
   }
 
   .news_bottom {
@@ -82,6 +82,29 @@
     color: #666
   }
 
+  .news_attachment {
+
+  }
+
+  .news_attachment ul {
+    padding-left: 20px;
+  }
+
+  .news_attachment ul li {
+    list-style: disc;
+    margin: 6px 0;
+    border-bottom: none
+  }
+
+  .news_attachment ul li a {
+    color: #333;
+  }
+
+  .news_attachment ul li a:hover {
+    color: #ff9a5f;
+    cursor: pointer;
+  }
+
 </style>
 <template>
   <div>
@@ -108,10 +131,21 @@
           </div>
         </div>
         <div class="news_content">{{{article.content}}}</div>
+        <div class="news_attachment" v-if="article.attachment_list.length>0">
+          <span>附件列表:</span>
+          <ul>
+            <li v-for="url in article.attachment_list"><a href="/static/res/{{url.url}}" target="_blank">{{url.name}}</a></li>
+          </ul>
+        </div>
+        <ul>
+          <li></li>
+        </ul>
         <div class="news_bottom">
-          <div v-bind:class="{ 'news_bottom_left_disabled': !articlePre , 'news_bottom_left': articlePre }">上一主题: <a @click="onNewsAnother(articlePre)">{{articlePre ? articlePre.title :
+          <div v-bind:class="{ 'news_bottom_left_disabled': !articlePre , 'news_bottom_left': articlePre }">上一主题: <a
+            @click="onNewsAnother(articlePre)">{{articlePre ? articlePre.title :
             '没有了'}}</a></div>
-          <div v-bind:class="{ 'news_bottom_right_disabled': !articleNext, 'news_bottom_right': articleNext}">下一主题: <a @click="onNewsAnother(articleNext)">{{articleNext ? articleNext.title
+          <div v-bind:class="{ 'news_bottom_right_disabled': !articleNext, 'news_bottom_right': articleNext}">下一主题: <a
+            @click="onNewsAnother(articleNext)">{{articleNext ? articleNext.title
             : '没有了'}}</a></div>
         </div>
       </div>
@@ -157,8 +191,7 @@
         articleNext: {}
       }
     },
-    components: {
-    },
+    components: {},
     ready () {
     },
     methods: {

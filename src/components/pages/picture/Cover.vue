@@ -11,7 +11,8 @@
           <li v-for="title in list" @click="onTitleListClicked($index)" v-bind:class="{ 'title_active': $index===(type-1) }">{{title}}</li>
         </ul>
       </div>
-      <div>
+      <div class="empty_title_box"></div>
+      <div class="news_list_container">
 
       </div>
     </div>

@@ -11,7 +11,7 @@
     width: 30px;
     height: 16px;
     border-radius: 2px;
-    line-height: 12px;
+    line-height: 13px;
     text-align: center;
     background-color: #ff3b1b;
   }
@@ -39,7 +39,7 @@
     width: 0;
     height: 0;
     border-right: 4px solid transparent;
-    border-top: 10px solid #fff;
+    border-top: 10px solid transparent;
     z-index: 99;
   }
 
@@ -48,7 +48,7 @@
 <template>
   <div class="hot_flag">
     <div class="flag_box">
-      <span>NEW</span>
+      <span>{{title}}</span>
     </div>
     <div class="transparent"></div>
     <div class="triangle"></div>
@@ -59,6 +59,12 @@
   export default{
     data () {
       return {}
+    },
+    props: {
+      title: {
+        type: String,
+        default: 'NEW'
+      }
     }
   }
 </script>

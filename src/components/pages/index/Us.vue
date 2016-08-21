@@ -75,12 +75,16 @@
     display: none;
   }
 
+  .us_flag {
+    top: 10px;
+  }
+
 </style>
 <template>
   <div class="us_container">
     <div class="window_header">
       <ul>
-        <li class="window_nav window_nav_active"><span>物业风采</span></li>
+        <li class="window_nav window_nav_active"><span>物业风采<app-flag title="HOT" class="us_flag"></app-flag></span></li>
       </ul>
     </div>
     <div class="us_content">

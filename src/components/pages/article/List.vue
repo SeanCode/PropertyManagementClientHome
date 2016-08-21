@@ -169,6 +169,7 @@
 </template>
 <script>
   import Service from '../../../service/article'
+  import Flag from '../../widgets/Flag.vue'
 
   export default{
     route: {
@@ -199,6 +200,9 @@
         pageAll: 0,
         page: 0
       }
+    },
+    components: {
+      'app-flag': Flag
     },
     ready () {
       this.title = this.list[this.category - 1]

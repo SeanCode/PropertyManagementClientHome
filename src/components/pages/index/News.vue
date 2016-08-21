@@ -19,6 +19,7 @@
     line-height: 48px;
     text-align: center;
     margin-right: 18px;
+    position: relative;
     cursor: pointer;
   }
 
@@ -170,27 +171,7 @@
         return link
       },
       goToContent: function (article) {
-        var kind = article.type / 10000
-        var type = article.type % 10000
-        var contentType = article.type
-        var id = article.id
-        var link
-        switch (parseInt(kind)) {
-          case 1:
-            link = '/home/guide/content?type=' + type + '&content_type=' + contentType + '&id=' + id
-            break
-          case 2:
-            link = '/home/news/content?type=' + type + '&content_type=' + contentType + '&id=' + id
-            break
-          case 3:
-            link = '/home/log/content?type=' + type + '&content_type=' + contentType + '&id=' + id
-            break
-          default:
-            break
-        }
-        if (link) {
-          this.$route.router.replace(link)
-        }
+        this.$route.router.go('/home/articles/' + article.type + '/' + article.id)
       }
     }
   }
