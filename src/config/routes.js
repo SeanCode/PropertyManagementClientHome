@@ -8,7 +8,7 @@ import ArticleList from '../components/pages/article/List.vue'
 import ArticleContent from '../components/pages/article/Content.vue'
 import Institution from '../components/pages/institution/Institution.vue'
 import Service from '../components/pages/service/Service.vue'
-import Cover from '../components/pages/picture/Cover.vue'
+import Gallery from '../components/pages/picture/Gallery.vue'
 import Photo from '../components/pages/picture/Photo.vue'
 import Core from '../core/core'
 
@@ -35,10 +35,10 @@ export function configRouter (router) {
         '/institution': {
           component: Institution
         },
-        '/picture/covers': {
-          component: Cover
+        '/picture/:type': {
+          component: Gallery
         },
-        '/picture/photos': {
+        '/picture/:type/:gallery': {
           component: Photo
         },
         '/articles/:type': {

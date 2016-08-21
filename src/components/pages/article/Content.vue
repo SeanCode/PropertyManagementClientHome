@@ -82,6 +82,20 @@
     color: #666
   }
 
+  .news_img {
+
+  }
+
+  .news_img ul li {
+    border-bottom: none;
+    margin: 8px 0;
+    max-width: 996px;
+  }
+
+  .news_img img {
+    max-width: 500px;
+  }
+
   .news_attachment {
 
   }
@@ -131,7 +145,12 @@
           </div>
         </div>
         <div class="news_content">{{{article.content}}}</div>
-        <div class="news_attachment" v-if="article.attachment_list.length>0">
+        <div class="news_img">
+          <ul>
+            <li v-for="img in article.img_list"><img :src="imgUrl(img)"></li>
+          </ul>
+        </div>
+        <div class="news_attachment" v-if="article.attachment_list !== undefined && article.attachment_list.length > 0">
           <span>附件列表:</span>
           <ul>
             <li v-for="url in article.attachment_list"><a href="/static/res/{{url.url}}" target="_blank">{{url.name}}</a></li>
@@ -206,6 +225,9 @@
         if (arguments !== undefined && articleAnother !== null) {
           this.$route.router.go('/home/articles/' + articleAnother.type + '/' + articleAnother.id)
         }
+      },
+      imgUrl: function (url) {
+        return 'http://localhost/static/res/' + url
       }
     }
   }

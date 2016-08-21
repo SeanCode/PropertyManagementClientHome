@@ -26,7 +26,7 @@
   export default{
     route: {
       data (transition) {
-        Service.getParams(transition.to.query, (err, message) => {
+        Service.getParams(transition.to.params, (err, message) => {
           if (err) {
             console.log(err)
           } else {

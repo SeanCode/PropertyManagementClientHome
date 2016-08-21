@@ -181,15 +181,15 @@
         <ul class="page-navs-inner">
           <li class="title"><a>物业风采</a>
           </li>
-          <li class="mtwhite"><a v-link="{ path: '/home/picture/covers?type=1' }">领导关怀</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/picture/1' }">领导关怀</a>
           </li>
-          <li><a v-link="{ path: '/home/picture/covers?type=2' }">荣誉奖励</a>
+          <li><a v-link="{ path: '/home/picture/2' }">荣誉奖励</a>
           </li>
-          <li><a v-link="{ path: '/home/picture/covers?type=3' }">会议纪实</a>
+          <li><a v-link="{ path: '/home/picture/3' }">会议纪实</a>
           </li>
-          <li><a v-link="{ path: '/home/picture/covers?type=4' }">物业动态</a>
+          <li><a v-link="{ path: '/home/picture/4' }">物业动态</a>
           </li>
-          <li><a v-link="{ path: '/home/picture/covers?type=5' }">校园绿化</a>
+          <li><a v-link="{ path: '/home/picture/5' }">校园绿化</a>
           </li>
         </ul>
       </li>
