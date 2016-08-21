@@ -55,10 +55,7 @@
   <div class="footerContainer">
     <p>三XIN服务热线: 62461241</p>
     <ul>
-      <li>重庆邮电大学</li>
-      <li>重庆邮电大学</li>
-      <li>重庆邮电大学</li>
-      <li>重庆邮电大学</li>
+      <li><a href="http://202.202.32.35">重庆邮电大学</a></li>
       <li id="noneBorder"><a href="http://202.202.43.93/dashboard/index">后台管理系统</a></li>
     </ul>
     <span>Copyright @ {{year}} WYCLZX All Rights Reserved</span>

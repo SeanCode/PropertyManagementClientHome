@@ -29,10 +29,10 @@
       <ul>
         <li class="news_index_list" v-for="article in articleList">
           <div v-if="$index < 5">
-            <a href="javascript:;"><span>{{article.title}}</span>
+            <a href="javascript:;" @click="goToContent(article)"><span>{{article.title}}</span>
               <app-flag v-if="article.is_new"></app-flag>
             </a>
-            <span class="news_date">{{new Date(article.create_time * 1000).toLocaleDateString()}}</span>
+            <span class="news_date">{{article.create_time_formated}}</span>
           </div>
         </li>
       </ul>
@@ -60,7 +60,7 @@
       'app-flag': Flag
     },
     ready () {
-      Service.getLatestArticles(this, (list) => {
+      Service.getLatestList(this, (list) => {
         this.articleList = list
       })
     },
@@ -69,7 +69,7 @@
         this.showLatest = true
         this.showPrompt = false
         this.showRules = false
-        Service.getLatestArticles(this, (list) => {
+        Service.getLatestList(this, (list) => {
           this.articleList = list
         })
       },
@@ -92,13 +92,36 @@
       moreLink: function () {
         var link = ''
         if (this.showLatest) {
-          link = '/home/guide/list?type=2'
+          link = '/home/articles/20001'
         } else if (this.showPrompt) {
-          link = '/home/guide/list?type=3'
+          link = '/home/articles/10003'
         } else if (this.showRules) {
-          link = '/home/guide/list?type=1'
+          link = '/home/articles/10001'
         }
         return link
+      },
+      goToContent: function (article) {
+        var kind = article.type / 10000
+        var type = article.type % 10000
+        var contentType = article.type
+        var id = article.id
+        var link
+        switch (parseInt(kind)) {
+          case 1:
+            link = '/home/guide/content?type=' + type + '&content_type=' + contentType + '&id=' + id
+            break
+          case 2:
+            link = '/home/news/content?type=' + type + '&content_type=' + contentType + '&id=' + id
+            break
+          case 3:
+            link = '/home/log/content?type=' + type + '&content_type=' + contentType + '&id=' + id
+            break
+          default:
+            break
+        }
+        if (link) {
+          this.$route.router.replace(link)
+        }
       }
     }
   }

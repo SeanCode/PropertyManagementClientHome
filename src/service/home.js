@@ -4,23 +4,15 @@
 import Core from '../core/core'
 
 export default {
-  getLatestArticles: getLatestArticles,
   getGuideProcessList: getGuideProcessList,
   getGuideRuleList: getGuideRuleList,
   getGuideDownloadList: getGuideDownloadList,
+  getLatestList: getLatestList,
   getNewsAllList: getNewsAllList
 }
 
-function getLatestArticles (context, cb) {
-  Core.Api.ARTICLE.getLatest().then((data) => {
-    cb(data.article_list)
-  }, (data) => {
-    Core.Toast.error(context, data.message)
-  })
-}
-
 function getGuideProcessList (context, cb) {
-  Core.Api.ARTICLE.getGuideProcessList(0).then((data) => {
+  Core.Api.ARTICLE.getArticleList(10003).then((data) => {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)
@@ -28,7 +20,7 @@ function getGuideProcessList (context, cb) {
 }
 
 function getGuideRuleList (context, cb) {
-  Core.Api.ARTICLE.getGuideRuleList(0).then((data) => {
+  Core.Api.ARTICLE.getArticleList(10001).then((data) => {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)
@@ -36,7 +28,15 @@ function getGuideRuleList (context, cb) {
 }
 
 function getGuideDownloadList (context, cb) {
-  Core.Api.ARTICLE.getGuideDownloadList(0).then((data) => {
+  Core.Api.ARTICLE.getArticleList(10004).then((data) => {
+    cb(data.article_list)
+  }, (data) => {
+    Core.Toast.error(context, data.message)
+  })
+}
+
+function getLatestList (context, cb) {
+  Core.Api.ARTICLE.getArticleLatest(0).then((data) => {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)
@@ -44,7 +44,7 @@ function getGuideDownloadList (context, cb) {
 }
 
 function getNewsAllList (context, cb) {
-  Core.Api.ARTICLE.getNewsAllList(0).then((data) => {
+  Core.Api.ARTICLE.getArticleList(20000, 0).then((data) => {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)

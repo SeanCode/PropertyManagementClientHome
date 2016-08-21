@@ -134,7 +134,8 @@ export default {
   ltrim: ltrim,
   rtrim: rtrim,
   trim: trim,
-  Base64: Base64
+  Base64: Base64,
+  stringFormat: stringFormat
 }
 
 function time () {
@@ -813,3 +814,14 @@ function rtrim (str, charlist) {
   return (str + '')
     .replace(re, '')
 }
+
+function stringFormat (str) {
+  var args = arguments
+  var re = new RegExp('%([1-' + args.length + '])', 'g')
+  return String(str).replace(
+    re, function (a1, a2) {
+      return args[a2]
+    }
+  )
+}
+

@@ -4,14 +4,10 @@
 import NotFound from '../components/NotFound.vue'
 import Home from '../Home.vue'
 import Index from '../components/pages/index/Index.vue'
-import GuideList from '../components/pages/guide/GuideList.vue'
-import GuideContent from '../components/pages/guide/GuideContent.vue'
+import ArticleList from '../components/pages/article/List.vue'
+import ArticleContent from '../components/pages/article/Content.vue'
 import Institution from '../components/pages/institution/Institution.vue'
 import Service from '../components/pages/service/Service.vue'
-import NewsList from '../components/pages/news/List.vue'
-import NewsContent from '../components/pages/news/Content.vue'
-import LogList from '../components/pages/log/List.vue'
-import LogContent from '../components/pages/log/Content.vue'
 import GalleryCoverGrid from '../components/pages/picture/GalleryCoverGrid.vue'
 import GalleryPhotoGrid from '../components/pages/picture/GalleryPhotoGrid.vue'
 import Core from '../core/core'
@@ -36,20 +32,8 @@ export function configRouter (router) {
         '/service': {
           component: Service
         },
-        '/guide/list': {
-          component: GuideList
-        },
-        '/guide/content': {
-          component: GuideContent
-        },
         '/institution': {
           component: Institution
-        },
-        '/news/list': {
-          component: NewsList
-        },
-        '/news/content': {
-          component: NewsContent
         },
         '/picture/covers': {
           component: GalleryCoverGrid
@@ -57,14 +41,11 @@ export function configRouter (router) {
         '/picture/photos': {
           component: GalleryPhotoGrid
         },
-        '/log/list': {
-          component: LogList
+        '/articles/:type': {
+          component: ArticleList
         },
-        '/log/content': {
-          component: LogContent
-        },
-        '*': {
-          component: NotFound
+        '/articles/:type/:id': {
+          component: ArticleContent
         }
       }
     }

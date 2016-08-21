@@ -2,6 +2,7 @@
  * Created by Cheney Yang <yangcheng0816@gmail.com> on 16/6/4.
  */
 import Const from './const'
+import Config from './config'
 
 export default{
   debug: debug,
@@ -48,7 +49,9 @@ function rawLog () {
 
   args.unshift('[' + levelName.toUpperCase() + ']')
   args.unshift(new Date().toString())
-  console.log.apply(console, args)
+  if (Config.IS_DEBUG) {
+    console.log.apply(console, args)
+  }
 }
 
 function debug () {

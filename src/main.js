@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import { configRouter } from './config/routes'
+import Core from './core/core'
 require('es6-promise').polyfill()
 
 global.jQuery = require('jquery')
@@ -16,8 +17,7 @@ Vue.use(VueResource)
 // create router
 const router = new VueRouter({
   history: true,
-  saveScrollPosition: true,
-  linkActiveClass: 'active'
+  saveScrollPosition: true
 })
 
 // configure router
@@ -27,5 +27,4 @@ configRouter(router)
 const app = Vue.extend(require('./App.vue'))
 router.start(app, '#app')
 
-// just for debugging
-window.router = router
+window.core = Core

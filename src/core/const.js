@@ -9,18 +9,9 @@ export default {
     API: {
       ADMIN_LOGIN: '/admin/login',
       ORG_SETTINGS: '/org/intro-list',
-      ARTICLE_LATEST: '/article/latest',
-      ARTICLE_GUIDE_PROCESS_LIST: '/article/guide-process-list',
-      ARTICLE_GUIDE_RULE_LIST: '/article/guide-rule-list',
-      ARTICLE_GUIDE_WORK_LIST: '/article/guide-work-list',
-      ARTICLE_GUIDE_DOWNLOAD_LIST: '/article/guide-download-list',
-      ARTICLE_NEWS_HOT_LIST: '/article/news-hot-list',
-      ARTICLE_NEWS_POST_LIST: '/article/news-post-list',
-      ARTICLE_NEWS_ALL_LIST: '/article/news-all-list',
-      ARTICLE_LOG_DEVICE_LIST: '/article/log-device-list',
-      ARTICLE_LOG_TEACHING_LIST: '/article/log-teaching-list',
-      ARTICLE_LOG_DEPARTMENT_LIST: '/article/log-department-list',
-      ARTICLE_LOG_PROPERTY_LIST: '/article/log-property-list'
+      ARTICLE_LATEST: '/articles/',
+      ARTICLE_LIST: '/articles/{type}',
+      ARTICLE_CONTENT: '/articles/{type}/{id}'
     }
   },
 

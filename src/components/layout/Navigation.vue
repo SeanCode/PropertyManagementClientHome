@@ -123,23 +123,23 @@
 <template>
   <nav class="page-nav">
     <ul class="wrap page-navs">
-      <li v-link-active><a v-link="{ path: '/home/index' }">首页</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/index') }"><a v-link="{ path: '/home/index' }">首页</a>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/guide' }">服务指南</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/articles/1000') }"><a v-link="'/home/articles'">服务指南</a>
         <ul class="page-navs-inner">
           <li class="title"><a>服务指南</a>
           </li>
-          <li class="btwhite"><a v-link="{ path: '/home/guide/list?type=1' }">政策法规</a>
+          <li class="btwhite"><a v-link="{ path: '/home/articles/10001' }">政策法规</a>
           </li>
-          <li><a v-link="{ path: '/home/guide/list?type=2' }">工作简报</a>
+          <li><a v-link="{ path: '/home/articles/10002' }">工作简报</a>
           </li>
-          <li><a v-link="{ path: '/home/guide/list?type=3' }">流程指南</a>
+          <li><a v-link="{ path: '/home/articles/10003' }">流程指南</a>
           </li>
-          <li><a v-link="{ path: '/home/guide/list?type=4' }">相关下载</a>
+          <li><a v-link="{ path: '/home/articles/10004' }">相关下载</a>
           </li>
         </ul>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/institution' }">机构设置</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/institution') }"><a v-link="{ path: '/home/institution' }">机构设置</a>
         <ul class="page-navs-inner">
           <li class="title"><a>机构设置</a>
           </li>
@@ -157,17 +157,17 @@
           </li>
         </ul>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/news' }">新闻公告</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/articles/2000') }"><a>新闻公告</a>
         <ul class="page-navs-inner">
           <li class="title"><a>新闻公告</a>
           </li>
-          <li class="mtwhite"><a v-link="{ path: '/home/news/list?type=1' }">新闻热点</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/articles/20001' }">新闻热点</a>
           </li>
-          <li><a v-link="{ path: '/home/news/list?type=2' }">公示公告</a>
+          <li><a v-link="{ path: '/home/articles/20002' }">公示公告</a>
           </li>
         </ul>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/service' }">物业服务</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/service') }"><a>物业服务</a>
         <ul class="page-navs-inner">
           <li class="title"><a>物业服务</a>
           </li>
@@ -177,7 +177,7 @@
           </li>
         </ul>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/picture' }">物业风采</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/picture') }"><a v-link="{ path: '/home/picture' }">物业风采</a>
         <ul class="page-navs-inner">
           <li class="title"><a>物业风采</a>
           </li>
@@ -193,22 +193,32 @@
           </li>
         </ul>
       </li>
-      <li v-link-active><a v-link="{ path: '/home/log' }">安检日志</a>
+      <li v-bind:class="{ 'active': hasRoute('/home/articles/3000') }"><a>安检日志</a>
         <ul class="page-navs-inner">
           <li class="title"><a>安检日志</a>
           </li>
-          <li class="mtwhite"><a v-link="{ path: '/home/log/list?type=1' }">特种设备</a>
+          <li class="mtwhite"><a v-link="{ path: '/home/articles/30001' }">特种设备</a>
           </li>
-          <li><a v-link="{ path: '/home/log/list?type=2' }">消防安全</a>
+          <li><a v-link="{ path: '/home/articles/30002' }">消防安全</a>
           </li>
-          <li><a v-link="{ path: '/home/log/list?type=3' }">教学巡查</a>
+          <li><a v-link="{ path: '/home/articles/30003' }">教学巡查</a>
           </li>
-          <li><a v-link="{ path: '/home/log/list?type=4' }">公寓巡查</a>
+          <li><a v-link="{ path: '/home/articles/30004' }">公寓巡查</a>
           </li>
-          <li><a v-link="{ path: '/home/log/list?type=5' }">物业巡查</a>
+          <li><a v-link="{ path: '/home/articles/30005' }">物业巡查</a>
           </li>
         </ul>
       </li>
     </ul>
   </nav>
 </template>
+<script>
+  export default {
+    methods: {
+      // a solution for v-link-active
+      hasRoute: function (partial) {
+        return (this.$route.path.indexOf(partial) > -1)
+      }
+    }
+  }
+</script>
