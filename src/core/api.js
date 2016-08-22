@@ -36,6 +36,17 @@ export default {
     getArticleLatest: function (page) {
       return get(Const.NET.API.ARTICLE_LATEST, {page: page})
     }
+  },
+  PICTURE: {
+    getLatest: function () {
+      return get(Const.NET.API.PICTURE_LATEST, {})
+    },
+    getCoverList: function (type) {
+      return get(Const.NET.API.PICTURE_COVER_LIST, {type: type})
+    },
+    getPhotoList: function (type, coverId) {
+      return get(Const.NET.API.PICTURE_PHOTO_LIST, {type: type, cover_id: coverId})
+    }
   }
 }
 

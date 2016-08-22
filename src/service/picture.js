@@ -1,26 +1,39 @@
 /**
  * Created by Cheney Yang <yangcheng0816@gmail.com> on 16/7/31.
  */
+import Core from '../core/core'
+
 export default {
-  getParams: getParams
+  validate: validate,
+  getCoverList: getCoverList,
+  getPhotoList: getPhotoList
 }
 
 var list = ['领导关怀', '荣誉奖励', '会议纪实', '物业动态', '校园绿化']
 
-function getParams (params, callback) {
+function validate (params, callback) {
   var type = params.type
   if (type === undefined) {
     type = 1
   }
   if (type === undefined || type <= 0 || type > list.length) {
-    var error = {}
-    error.message = 'param type error'
     type = 1
   }
-  //  mock network request
-  callback(error, {
-    type: type,
-    list: list,
-    title: list[type - 1]
+  callback(type, list)
+}
+
+function getCoverList (context, type, cb) {
+  Core.Api.PICTURE.getCoverList(type).then((data) => {
+    cb(data)
+  }, (error) => {
+    Core.Toast.error(context, error.message)
+  })
+}
+
+function getPhotoList (context, type, coverId, cb) {
+  Core.Api.PICTURE.getPhotoList(type, coverId).then((data) => {
+    cb(data)
+  }, (error) => {
+    Core.Toast.error(context, error.message)
   })
 }

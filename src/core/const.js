@@ -11,7 +11,10 @@ export default {
       ORG_SETTINGS: '/org/intro-list',
       ARTICLE_LATEST: '/articles/',
       ARTICLE_LIST: '/articles/{type}',
-      ARTICLE_CONTENT: '/articles/{type}/{id}'
+      ARTICLE_CONTENT: '/articles/{type}/{id}',
+      PICTURE_LATEST: '/photo/',
+      PICTURE_COVER_LIST: '/photo/{type}',
+      PICTURE_PHOTO_LIST: '/photo/{type}/{cover_id}'
     }
   },
 

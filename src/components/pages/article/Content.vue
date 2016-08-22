@@ -173,6 +173,7 @@
   </div>
 </template>
 <script>
+  import Core from '../../../core/core'
   import Service from '../../../service/article'
 
   export default{
@@ -227,7 +228,11 @@
         }
       },
       imgUrl: function (url) {
-        return 'http://localhost/static/res/' + url
+        if (Core.Config.IS_DEBUG) {
+          return 'http://localhost/static/res/' + url
+        } else {
+          return 'http://202.202.43.93/static/res/' + url
+        }
       }
     }
   }
