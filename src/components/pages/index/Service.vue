@@ -156,13 +156,13 @@
         }
       },
       query: function () {
-        window.router.go('/home/service?type=1')
+        this.$route.router.go('/home/service?type=1')
       },
       logList: function () {
-        window.router.go('/home/log/list?type=1')
+        this.$route.router.go('/home/articles/30001')
       },
       repair: function () {
-        window.router.go('/home/index')
+        this.$route.router.go('/home/index')
       }
     }
 

@@ -6,7 +6,9 @@ import Core from '../core/core'
 export default {
   validate: validate,
   getCoverList: getCoverList,
-  getPhotoList: getPhotoList
+  getPhotoList: getPhotoList,
+  getPhotoLatest: getPhotoLatest,
+  getCoverLatest: getCoverLatest
 }
 
 var list = ['领导关怀', '荣誉奖励', '会议纪实', '物业动态', '校园绿化']
@@ -32,6 +34,22 @@ function getCoverList (context, type, cb) {
 
 function getPhotoList (context, type, coverId, cb) {
   Core.Api.PICTURE.getPhotoList(type, coverId).then((data) => {
+    cb(data)
+  }, (error) => {
+    Core.Toast.error(context, error.message)
+  })
+}
+
+function getPhotoLatest (context, cb) {
+  Core.Api.PICTURE.getPhotoLatest().then((data) => {
+    cb(data)
+  }, (error) => {
+    Core.Toast.error(context, error.message)
+  })
+}
+
+function getCoverLatest (context, cb) {
+  Core.Api.PICTURE.getCoverLatest().then((data) => {
     cb(data)
   }, (error) => {
     Core.Toast.error(context, error.message)

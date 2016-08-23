@@ -38,8 +38,11 @@ export default {
     }
   },
   PICTURE: {
-    getLatest: function () {
-      return get(Const.NET.API.PICTURE_LATEST, {})
+    getPhotoLatest: function () {
+      return get(Const.NET.API.PICTURE_PHOTO_LATEST, {})
+    },
+    getCoverLatest: function () {
+      return get(Const.NET.API.PICTURE_COVER_LATEST, {})
     },
     getCoverList: function (type) {
       return get(Const.NET.API.PICTURE_COVER_LIST, {type: type})
