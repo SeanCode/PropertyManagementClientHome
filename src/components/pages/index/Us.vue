@@ -132,14 +132,14 @@
         var cur = parseInt(window.$('.style_box').css('left'))
 //        var width = parseInt($('.style_box').css('width'))
         if (Math.abs(cur) !== 0) {
-          window.$('.style_box').animate({'left': '0px'}, 1000)
+          window.$('.style_box').animate({'left': '0px'}, this.coverList.length * 1000)
         }
       },
       translateRight: function () {
         var cur = parseInt(window.$('.style_box').css('left'))
         var width = parseInt(window.$('.style_box').css('width'))
         if (Math.abs(cur) <= width - 1200) {
-          window.$('.style_box').animate({'left': -(width - 1200) + 'px'}, 1000)
+          window.$('.style_box').animate({'left': -(width - 1200) + 'px'}, this.coverList.length * 1000)
         }
       },
       stopAnimate: function () {

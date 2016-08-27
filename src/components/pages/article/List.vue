@@ -38,6 +38,8 @@
     margin: 16px 0;
     width: 160px;
     position: fixed;
+    background-color: #fff;
+    z-index: 100;
   }
 
   .title_box .header {
@@ -47,6 +49,7 @@
     padding: 0 16px;
     text-align: center;
     background-color: #ff9a5f;
+    z-index: 100;
   }
 
   .title_box .header > span {
@@ -56,6 +59,7 @@
   .title_box > ul > li {
     text-align: center;
     margin: 8px 0;
+    z-index: 100;
   }
 
   .title_box > ul > li:hover {
@@ -176,7 +180,7 @@
       data (transition) {
         var type = transition.to.params.type
         var page = transition.to.query.page
-        if (page === undefined) {
+        if (page === undefined || page < 1) {
           page = 1
         }
         Service.validate(type, (cat, titles) => {

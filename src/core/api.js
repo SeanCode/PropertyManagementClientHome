@@ -44,11 +44,11 @@ export default {
     getCoverLatest: function () {
       return get(Const.NET.API.PICTURE_COVER_LATEST, {})
     },
-    getCoverList: function (type) {
-      return get(Const.NET.API.PICTURE_COVER_LIST, {type: type})
+    getCoverList: function (type, page) {
+      return get(Const.NET.API.PICTURE_COVER_LIST, {type: type, page: page})
     },
-    getPhotoList: function (type, coverId) {
-      return get(Const.NET.API.PICTURE_PHOTO_LIST, {type: type, cover_id: coverId})
+    getPhotoList: function (type, coverId, page) {
+      return get(Const.NET.API.PICTURE_PHOTO_LIST, {type: type, cover_id: coverId, page: page})
     }
   }
 }

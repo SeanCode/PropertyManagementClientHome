@@ -1,9 +1,15 @@
 <style>
 
+  .empty_cover_box {
+    width: 460px;
+    height: 322px;
+    overflow: hidden;
+  }
+
   .cover_box {
     text-align: center;
     float: left;
-    margin: 20px;
+    padding: 20px;
     cursor: pointer;
     border-bottom: dashed 2px #666;
   }
@@ -14,7 +20,6 @@
 
   .cover_box .cover_name {
     text-align: center;
-    margin-bottom: 10px;
   }
 
   .cover_wrapper {
@@ -62,6 +67,14 @@
     opacity: 0.5;
     display: none;
   }
+
+  .photo_container {
+
+  }
+
+  .photo_pagination {
+    margin-right: 25px;
+  }
 </style>
 <template>
   <div>
@@ -80,17 +93,25 @@
       </div>
       <div class="empty_title_box"></div>
       <div class="news_list_container">
-        <div class="cover_box" v-on:mouseover="showCover($event)" v-on:mouseout="hiddenCover($event)"  v-for="cover in coverList">
-          <div class="cover_wrapper">
-            <div class="cover_hover"></div>
-            <span class="cover_msg cover_msg_author">上传者:&nbsp;&nbsp;{{cover.admin ? cover.admin.name : 'admin'}}</span>
-            <span class="cover_msg cover_msg_read">浏览次数:&nbsp;&nbsp;{{cover.read}}</span>
-            <span class="cover_msg cover_msg_time"> {{cover.update_time_formatted}}</span>
-            <img :src="photoUrl(cover.cover_url)"/>
+        <div class="photo_container">
+          <div class="cover_box" @click="clickToPhotoList(cover)" v-on:mouseover="showCover($event)" v-on:mouseout="hiddenCover($event)"  v-for="cover in coverList">
+            <div class="cover_wrapper">
+              <div class="cover_hover"></div>
+              <span class="cover_msg cover_msg_author">上传者:&nbsp;&nbsp;{{cover.admin ? cover.admin.name : 'admin'}}</span>
+              <span class="cover_msg cover_msg_read">浏览次数:&nbsp;&nbsp;{{cover.read}}</span>
+              <span class="cover_msg cover_msg_time"> {{cover.update_time_formatted}}</span>
+              <img :src="photoUrl(cover.cover_url)"/>
+            </div>
+            <div class="cover_name"><span>{{cover.name}}</span></div>
           </div>
-          <div class="cover_name"><span>{{cover.name}}</span></div>
+          <div class="empty_cover_box cover_box" v-show="coverList.length%4!==0"></div>
+          <div class="clear"></div>
         </div>
-        <div class="clear"></div>
+        <div class="pagination photo_pagination">
+          <a v-bind:class="{ 'pagination_link_disabled': page === 1, 'pagination_link': page > 1 }" @click="clickToPrevious()">上一页</a>
+          <span></span>
+          <a v-bind:class="{ 'pagination_link_disabled': page >= pageAll, 'pagination_link': page < pageAll }"@click='clickToNext()'>下一页</a>
+        </div>
       </div>
     </div>
   </div>
@@ -99,21 +120,27 @@
   import Core from '../../../core/core'
   import Service from '../../../service/picture'
 
-  export default{
+  export default {
     route: {
       data (transition) {
-        var type
+        var page = transition.to.query.page
+        if (page === undefined || page < 1) {
+          page = 1
+        }
+        var type = transition.to.params.type
         var list
-        Service.validate(transition.to.params, (_type, _list) => {
+        Service.validate(type, (_type, _list) => {
           type = _type
           list = _list
         })
-        Service.getCoverList(this, type, (data) => {
+        Service.getCoverList(this, type, page, (data) => {
           transition.next({
             title: list[type - 1],
             list: list,
             type: type,
-            coverList: data.cover_list
+            coverList: data.cover_list,
+            page: parseInt(page),
+            pageAll: Math.ceil(data.count / 4)
           })
         })
       }
@@ -123,13 +150,15 @@
         title: '',
         list: [],
         type: 0,
-        coverList: []
+        coverList: [],
+        page: 0,
+        pageAll: 1
       }
     },
     methods: {
       onTitleListClicked: function (index) {
         var type = index + 1
-        this.$route.router.go('/home/pictures/' + type)
+        this.$route.router.go('/home/pictures/' + type + '?page=1')
       },
       showCover: function (event) {
         var target = event.currentTarget
@@ -147,6 +176,21 @@
         } else {
           return 'http://202.202.43.93/static/res/' + url
         }
+      },
+      clickToPrevious: function () {
+        if (this.page <= 1) {
+          return
+        }
+        this.$route.router.go('/home/pictures/' + this.type + '?page=' + (this.page - 1))
+      },
+      clickToNext: function () {
+        if (this.page >= this.pageAll) {
+          return
+        }
+        this.$route.router.go('/home/pictures/' + this.type + '?page=' + (this.page + 1))
+      },
+      clickToPhotoList: function (cover) {
+        this.$route.router.go('/home/pictures/' + cover.type + '/' + cover.id + '?page=1')
       }
     }
   }

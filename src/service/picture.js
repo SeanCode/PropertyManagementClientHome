@@ -13,8 +13,8 @@ export default {
 
 var list = ['领导关怀', '荣誉奖励', '会议纪实', '物业动态', '校园绿化']
 
-function validate (params, callback) {
-  var type = params.type
+function validate (_type, callback) {
+  var type = _type
   if (type === undefined) {
     type = 1
   }
@@ -24,16 +24,16 @@ function validate (params, callback) {
   callback(type, list)
 }
 
-function getCoverList (context, type, cb) {
-  Core.Api.PICTURE.getCoverList(type).then((data) => {
+function getCoverList (context, type, page, cb) {
+  Core.Api.PICTURE.getCoverList(type, page).then((data) => {
     cb(data)
   }, (error) => {
     Core.Toast.error(context, error.message)
   })
 }
 
-function getPhotoList (context, type, coverId, cb) {
-  Core.Api.PICTURE.getPhotoList(type, coverId).then((data) => {
+function getPhotoList (context, type, coverId, page, cb) {
+  Core.Api.PICTURE.getPhotoList(type, coverId, page).then((data) => {
     cb(data)
   }, (error) => {
     Core.Toast.error(context, error.message)
