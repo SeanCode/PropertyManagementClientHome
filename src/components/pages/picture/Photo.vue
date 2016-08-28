@@ -28,7 +28,7 @@
           <div class="clear"></div>
         </div>
         <div class="pagination photo_pagination">
-          <a v-bind:class="{ 'pagination_link_disabled': page === 1, 'pagination_link': page > 1 }" @click="clickToPrevious()">上一页</a>
+          <a v-bind:class="{ 'pagination_link_disabled': page <= 1, 'pagination_link': page > 1 }" @click="clickToPrevious()">上一页</a>
           <span>{{page}}/{{pageAll}}</span>
           <a v-bind:class="{ 'pagination_link_disabled': page >= pageAll, 'pagination_link': page < pageAll }"@click='clickToNext()'>下一页</a>
         </div>
@@ -110,6 +110,11 @@
       }
     },
     components: {},
+    ready () {
+      if (parseInt(this.pageAll) === 0) {
+        this.pageAll = 1
+      }
+    },
     methods: {
       onTitleListClicked: function (index) {
         var type = index + 1
