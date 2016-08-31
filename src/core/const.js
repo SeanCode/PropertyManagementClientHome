@@ -8,6 +8,7 @@ export default {
     API_PATH: '/api/public/v1',
     API: {
       ADMIN_LOGIN: '/admin/login',
+      HOME_BANNER_LIST: '/home/banner-list',
       ORG_SETTINGS: '/org/intro-list',
       ARTICLE_LATEST: '/articles/',
       ARTICLE_LIST: '/articles/{type}',

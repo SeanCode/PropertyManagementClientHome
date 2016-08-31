@@ -8,7 +8,8 @@ export default {
   getGuideRuleList: getGuideRuleList,
   getGuideDownloadList: getGuideDownloadList,
   getLatestList: getLatestList,
-  getNewsAllList: getNewsAllList
+  getNewsAllList: getNewsAllList,
+  getBannerList: getBannerList
 }
 
 function getGuideProcessList (context, cb) {
@@ -48,5 +49,14 @@ function getNewsAllList (context, cb) {
     cb(data.article_list)
   }, (data) => {
     Core.Toast.error(context, data.message)
+  })
+}
+
+function getBannerList (context, cb) {
+  Core.Api.COMMON.getBannerList().then((data) => {
+    cb(data.banner_list)
+  }, (error) => {
+    cb([])
+    Core.Toast.error(context, error.message)
   })
 }

@@ -32,30 +32,45 @@
     </ol>
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="item active">
-        <img src="../../../assets/carousel_1.png" alt="First slide">
-      </div>
-      <div class="item">
-        <img src="../../../assets/carousel_2.png" alt="Second slide">
-      </div>
-      <div class="item">
-        <img src="../../../assets/carousel_3.png" alt="Third slide">
-      </div>
-      <div class="item">
-        <img src="../../../assets/carousel_4.png" alt="Fourth slide">
+      <div class="item" v-bind:class="{ 'active': $index===0 }" v-for="banner in bannerList">
+        <img :src="bannerUrl(banner.data)">
       </div>
     </div>
   </div>
 </template>
 <script>
-  export default{
+  import Service from '../../../service/home'
+  import Core from '../../../core/core'
+
+  export default {
     data () {
-      return {}
+      return {
+        bannerList: []
+      }
     },
     ready () {
-      setTimeout(function () {
-        window.$('.carousel').carousel('cycle')
-      }, 1000)
+      Service.getBannerList(this, (bannerList) => {
+        if (bannerList.length > 0) {
+          this.bannerList = bannerList
+        } else {
+          this.bannerList = Core.Config.BANNER_LIST
+        }
+        setTimeout(function () {
+          window.$('.carousel').carousel('cycle')
+        }, 800)
+      })
+    },
+    methods: {
+      bannerUrl: function (url) {
+        if (!url.startsWith('img')) {
+          return url
+        }
+        if (Core.Config.IS_DEBUG) {
+          return 'http://localhost/static/res/' + url
+        } else {
+          return 'http://202.202.43.93/static/res/' + url
+        }
+      }
     }
   }
 

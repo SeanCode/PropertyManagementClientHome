@@ -13,6 +13,9 @@ export default {
         name: name,
         password: password
       })
+    },
+    getBannerList: function () {
+      return get(Const.NET.API.HOME_BANNER_LIST, {})
     }
   },
   ORG: {
