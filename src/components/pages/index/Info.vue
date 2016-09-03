@@ -7,7 +7,7 @@
   }
 
   .info_content {
-    height: auto;
+    height: 244px;
     max-height: 166px;
     overflow: hidden;
   }

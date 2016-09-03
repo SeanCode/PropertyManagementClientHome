@@ -47,7 +47,7 @@ function getNewsTitleList (category, cb) {
 }
 
 function getLogTitles (category, cb) {
-  if (category === undefined || category < 0 || category >= logTitles.length) {
+  if (category === undefined || category <= 0 || category > logTitles.length) {
     category = 0
   }
   cb(category, logTitles)
