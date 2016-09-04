@@ -7,7 +7,10 @@ import Index from '../components/pages/index/Index.vue'
 import ArticleList from '../components/pages/article/List.vue'
 import ArticleContent from '../components/pages/article/Content.vue'
 import Institution from '../components/pages/institution/Institution.vue'
-import Service from '../components/pages/service/Service.vue'
+import Sdq from '../components/pages/service/Sdq.vue'
+import Tax from '../components/pages/service/Tax.vue'
+import Stat from '../components/pages/service/Statistic.vue'
+import Suggest from '../components/pages/service/Suggest.vue'
 import Cover from '../components/pages/picture/Cover.vue'
 import Photo from '../components/pages/picture/Photo.vue'
 import Core from '../core/core'
@@ -29,8 +32,17 @@ export function configRouter (router) {
         '/index': {
           component: Index
         },
-        '/service': {
-          component: Service
+        '/service/sdq': {
+          component: Sdq
+        },
+        '/service/tax': {
+          component: Tax
+        },
+        '/service/stat': {
+          component: Stat
+        },
+        '/service/suggest': {
+          component: Suggest
         },
         '/institution': {
           component: Institution

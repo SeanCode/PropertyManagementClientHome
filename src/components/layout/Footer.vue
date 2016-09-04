@@ -58,7 +58,7 @@
       <li><a href="http://202.202.32.35">重庆邮电大学</a></li>
       <li id="noneBorder"><a href="http://202.202.43.93/dashboard/index">后台管理系统</a></li>
     </ul>
-    <span>Copyright @ {{year}} WYCLZX All Rights Reserved</span>
+    <span>Copyright @ {{year}} WYGLZX All Rights Reserved</span>
     <span>重庆邮电大学物业管理中心版权所有</span>
   </div>
 </template>

@@ -122,13 +122,13 @@
 </style>
 <template>
   <div>
-    <div><span>您现在的位置: 新闻公告 > </span><span><a v-link='indicatorLink()' class='title_first'>{{title}}</a></span><span
+    <div><span>您现在的位置: {{headline}} > </span><span><a v-link='indicatorLink()' class='title_first'>{{title}}</a></span><span
       class="title_span">> {{article.title}}</span></div>
     <div class="divider"></div>
     <div>
       <div class="title_box">
         <div class="header">
-          <span>新闻公告</span>
+          <span>{{headline}}</span>
         </div>
         <ul>
           <li v-for="title in list" @click="onTitleListClicked($index)"
@@ -183,9 +183,11 @@
         var id = transition.to.params.id
         var category
         var list
-        Service.validate(type, (cat, titles) => {
+        var head
+        Service.validate(type, (cat, titles, headline) => {
           category = cat
           list = titles
+          head = headline
         })
         Service.getArticleContent(this, type, id, (data) => {
           transition.next({
@@ -195,7 +197,8 @@
             type: type,
             article: data.article_content,
             articlePre: data.article_previous,
-            articleNext: data.article_next
+            articleNext: data.article_next,
+            headline: head
           })
         })
       }
@@ -208,7 +211,8 @@
         category: -1,
         type: -1,
         articlePre: {},
-        articleNext: {}
+        articleNext: {},
+        headline: ''
       }
     },
     components: {},
@@ -217,7 +221,11 @@
     methods: {
       onTitleListClicked: function (index) {
         var type = Math.floor(this.type / 10) * 10 + (index + 1)
-        this.$route.router.go('/home/articles/' + type)
+        if (parseInt(type) === 10005) {
+          window.open('http://hqwx.cqupt.edu.cn/C24H/ViewRepair')
+        } else {
+          this.$route.router.go('/home/articles/' + type)
+        }
       },
       indicatorLink: function () {
         return '/home/articles/' + this.type

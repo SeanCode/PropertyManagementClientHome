@@ -137,6 +137,8 @@
           </li>
           <li><a v-link="{ path: '/home/articles/10004' }">相关下载</a>
           </li>
+          <li><a target="_blank" href="http://hqwx.cqupt.edu.cn/C24H/ViewRepair">网上保修</a>
+          </li>
         </ul>
       </li>
       <li v-bind:class="{ 'active': hasRoute('/home/institution') }"><a v-link="{ path: '/home/institution' }">机构设置</a>
@@ -169,12 +171,12 @@
       </li>
       <li v-bind:class="{ 'active': hasRoute('/home/service') }"><a>物业服务</a>
         <ul class="page-navs-inner">
-          <li class="title"><a>物业服务</a>
-          </li>
-          <li class="mtwhite"><a v-link="{ path: '/home/service?type=1' }">水电气查询</a>
-          </li>
-          <li><a v-link="{ path: '/home/service?type=2' }">物业费查询</a>
-          </li>
+          <li class="title"><a>物业服务</a></li>
+          <li class="mtwhite"><a v-link="{ path: '/home/service/sdq' }">水电气查询</a></li>
+          <li><a v-link="{ path: '/home/service/tax' }">物管费查询</a></li>
+          <li><a target="_blank" href="http://202.202.43.93/dashboard">数据录入</a></li>
+          <li><a v-link="{ path: '/home/service/stat' }">统计分析</a></li>
+          <li><a v-link="{ path: '/home/service/suggest' }">意见建议</a></li>
         </ul>
       </li>
       <li v-bind:class="{ 'active': hasRoute('/home/pictures') }"><a>物业风采</a>

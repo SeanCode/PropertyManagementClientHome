@@ -10,7 +10,7 @@ export default {
 }
 
 var newsTitles = ['新闻热点', '公示公告']
-var guideTitles = ['政策法规', '工作简报', '流程指南', '相关下载']
+var guideTitles = ['政策法规', '工作简报', '流程指南', '相关下载', '网上保修']
 var logTitles = ['特种设备', '教学巡查', '公寓巡查', '物业巡查']
 
 function validate (type, callback) {
@@ -36,21 +36,21 @@ function getGuideTitleList (category, cb) {
   if (category === undefined || category <= 0 || category > guideTitles.length) {
     category = 1
   }
-  cb(category, guideTitles)
+  cb(category, guideTitles, '服务指南')
 }
 
 function getNewsTitleList (category, cb) {
   if (category === undefined || category <= 0 || category > newsTitles.length) {
     category = 1
   }
-  cb(category, newsTitles)
+  cb(category, newsTitles, '新闻公告')
 }
 
 function getLogTitles (category, cb) {
   if (category === undefined || category <= 0 || category > logTitles.length) {
     category = 0
   }
-  cb(category, logTitles)
+  cb(category, logTitles, '安检日志')
 }
 
 function getArticleList (context, type, page, cb) {

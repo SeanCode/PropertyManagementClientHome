@@ -56,6 +56,15 @@
     color: #fff;
   }
 
+  .title_box a {
+    color: #848484;
+  }
+
+  .title_box a:hover {
+    color: #ff9a5f;
+    text-decoration: none;
+  }
+
   .title_box > ul > li {
     text-align: center;
     margin: 8px 0;
@@ -135,12 +144,12 @@
 </style>
 <template>
   <div>
-    <div><span>您现在的位置: 新闻公告 > </span><span class="title_span">{{title}}</span></div>
+    <div><span>您现在的位置: {{headline}} > </span><span class="title_span">{{title}}</span></div>
     <div class="divider"></div>
     <div class="list_content">
       <div class="title_box">
         <div class="header">
-          <span>新闻公告</span>
+          <span>{{headline}}</span>
         </div>
         <ul>
           <li v-for="title in list" @click="onTitleListClicked($index)"
@@ -183,13 +192,14 @@
         if (page === undefined || page < 1) {
           page = 1
         }
-        Service.validate(type, (cat, titles) => {
+        Service.validate(type, (cat, titles, head) => {
           transition.next({
             type: type,
             category: cat,
             list: titles,
             page: page,
-            title: titles[cat - 1]
+            title: titles[cat - 1],
+            headline: head
           })
         })
       }
@@ -202,7 +212,8 @@
         category: 1,
         articleList: [],
         pageAll: 0,
-        page: 0
+        page: 0,
+        headline: '新闻公告'
       }
     },
     components: {
@@ -233,7 +244,11 @@
     methods: {
       onTitleListClicked: function (index) {
         var type = Math.floor(this.type / 10) * 10 + (index + 1)
-        this.$route.router.go('/home/articles/' + type)
+        if (parseInt(type) === 10005) {
+          window.open('http://hqwx.cqupt.edu.cn/C24H/ViewRepair')
+        } else {
+          this.$route.router.go('/home/articles/' + type)
+        }
       },
       onNewsItemClicked: function (article) {
         this.$route.router.go('/home/articles/' + article.type + '/' + article.id)
