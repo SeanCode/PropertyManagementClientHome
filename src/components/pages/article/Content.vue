@@ -36,6 +36,10 @@
 
   }
 
+  .news_bottom a {
+    text-decoration: none;
+  }
+
   .news_bottom_left_disabled {
     overflow: hidden;
     margin-top: 12px;

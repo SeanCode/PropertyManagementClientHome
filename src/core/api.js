@@ -9,10 +9,7 @@ import Vue from 'vue'
 export default {
   COMMON: {
     login: function (name, password) {
-      return post(Const.NET.API.ADMIN_LOGIN, {
-        name: name,
-        password: password
-      })
+      return post(Const.NET.API.ADMIN_LOGIN, {name: name, password: password})
     },
     getBannerList: function () {
       return get(Const.NET.API.HOME_BANNER_LIST, {})
@@ -31,10 +28,7 @@ export default {
       return get(Const.NET.API.ARTICLE_LIST, {type: type, page: page})
     },
     getArticleContent: function (id, type) {
-      return get(Const.NET.API.ARTICLE_CONTENT, {
-        id: id,
-        type: type
-      })
+      return get(Const.NET.API.ARTICLE_CONTENT, {id: id, type: type})
     },
     getArticleLatest: function (page) {
       return get(Const.NET.API.ARTICLE_LATEST, {page: page})
@@ -52,6 +46,14 @@ export default {
     },
     getPhotoList: function (type, coverId, page) {
       return get(Const.NET.API.PICTURE_PHOTO_LIST, {type: type, cover_id: coverId, page: page})
+    }
+  },
+  SUGGEST: {
+    getSuggeastList: function (page) {
+      return get(Const.NET.API.SUGGEST_LIST, {page: page})
+    },
+    addSuggest: function (type, userName, userAccount, content) {
+      return post(Const.NET.API.SUGGEST_ADD, {type: type, user_name: userName, user_account: userAccount, content: content})
     }
   }
 }

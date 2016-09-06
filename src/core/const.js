@@ -16,7 +16,9 @@ export default {
       PICTURE_PHOTO_LATEST: '/photo/',
       PICTURE_COVER_LATEST: '/photo/covers/',
       PICTURE_COVER_LIST: '/photo/{type}',
-      PICTURE_PHOTO_LIST: '/photo/{type}/{cover_id}'
+      PICTURE_PHOTO_LIST: '/photo/{type}/{cover_id}',
+      SUGGEST_LIST: '/suggestion/list',
+      SUGGEST_ADD: '/suggestion/add'
     }
   },
 

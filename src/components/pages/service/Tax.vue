@@ -16,8 +16,24 @@
         </ul>
       </div>
       <div class="empty_title_box"></div>
-      <div class="news_list_container">
+      <div class="news_list_container query_container">
+        <div class="query_box">
+          <div class="query_account_box">
+            <input class="query_account" type=number placeholder="请输入一卡通账号"/>
+            <a href="javascript:;" class="query_account_btn">查询</a>
+          </div>
+          <div class="time_box">
+          </div>
+        </div>
+        <div class="result_box">
 
+        </div>
+
+        <div class="footer_box">
+          <div class="footer_btn footer_btn_left">打印</div>
+          <div class="footer_btn footer_btn_right" @click="report()">报错</div>
+          <div class="clear"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -25,16 +41,17 @@
 <style>
 </style>
 <script>
+  import Core from '../../../core/core'
+
   export default{
-    route: {
-      data (transition) {
-      }
-    },
     data () {
       return {
       }
     },
     methods: {
+      report: function () {
+        Core.Toast.info(this, '已上报, 也可拨打下面热线, 联系管理员')
+      }
     }
   }
 </script>

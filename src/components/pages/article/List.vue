@@ -95,6 +95,7 @@
     padding: 24px;
     float: left;
     width: 996px;
+    min-height: 300px;
   }
 
   .news_list_container li {
@@ -122,6 +123,10 @@
   .pagination {
     float: right;
     margin-top: 20px;
+  }
+
+  .pagination a {
+    text-decoration: none;
   }
 
   .pagination span {

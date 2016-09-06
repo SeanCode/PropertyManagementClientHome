@@ -17,12 +17,25 @@
       </div>
       <div class="empty_title_box"></div>
       <div class="news_list_container">
+        <div class="query_box">
+          <div class="query_account_box">
+            <input class="query_account" type=number placeholder="请输入一卡通账号"/>
+            <a href="javascript:;" class="query_account_btn">查询</a>
+          </div>
+          <div class="time_box">
+          </div>
+        </div>
+        <div class="result_box">
 
+        </div>
       </div>
     </div>
   </div>
 </template>
 <style>
+  .result_box {
+    min-height: 280px;
+  }
 </style>
 <script>
   export default{

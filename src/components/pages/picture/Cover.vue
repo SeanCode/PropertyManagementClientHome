@@ -104,7 +104,7 @@
             </div>
             <div class="cover_name"><span>{{cover.name}}</span></div>
           </div>
-          <div class="empty_cover_box cover_box" v-show="coverList.length%4!==0"></div>
+          <div class="empty_cover_box cover_box" v-show="coverList.length%2!==0"></div>
           <div class="clear"></div>
         </div>
         <div class="pagination photo_pagination">

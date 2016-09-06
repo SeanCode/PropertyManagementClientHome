@@ -130,7 +130,7 @@
 
         <div class="footer_box">
           <div class="footer_btn footer_btn_left">打印</div>
-          <div class="footer_btn footer_btn_right">报错</div>
+          <div class="footer_btn footer_btn_right" @click="report()">报错</div>
           <div class="clear"></div>
         </div>
       </div>
@@ -139,8 +139,9 @@
 </template>
 <script>
   import DatePicker from '../../widgets/DatePicker.vue'
+  import Core from '../../../core/core'
 
-  export default{
+  export default {
     components: {
       'date-picker': DatePicker
     },
@@ -150,6 +151,10 @@
         endTime: new Date().getTime()
       }
     },
-    methods: {}
+    methods: {
+      report: function () {
+        Core.Toast.info(this, '已上报, 也可拨打下面热线, 联系管理员')
+      }
+    }
   }
 </script>
