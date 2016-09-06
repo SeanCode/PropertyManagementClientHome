@@ -19,7 +19,7 @@ function getSuggestList (context, page, cb) {
 function addSuggest (context, type, userName, userAccount, content, cb) {
   Core.Api.SUGGEST.addSuggest(type, userName, userAccount, content).then((data) => {
     cb(data)
-  }, (error) => {
-    Core.Toast.error(context, error.message)
+  }, () => {
+    Core.Toast.error(context, '提交失败! 请稍后重试')
   })
 }

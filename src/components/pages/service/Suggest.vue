@@ -42,6 +42,11 @@
     width: 50%;
   }
 
+  .suggest_time {
+    margin-bottom: 10px;
+    display: block;
+  }
+
   .suggestion_title {
     padding-top: 0;
     color: #444;
@@ -91,13 +96,14 @@
                 {{suggest.content}}
               </div>
               <div class="reply_box">
+                <span class="suggest_time">发布时间: {{suggest.create_time_formatted}}</span>
                 {{suggest.status != 0 ? suggest.reply : '暂未回复'}}
               </div>
               <div class="clear"></div>
             </li>
           </ul>
         <div class="footer_box footer_suggestion">
-            <div class="footer_btn footer_btn_left">添加</div>
+            <div class="footer_btn footer_btn_left" @click="toggleShowAddSuggest()">添加</div>
           <div class="footer_pagination">
             <a v-bind:class="{ 'pagination_link_disabled': page === 1, 'pagination_link': page > 1 }" @click="clickToPrevious()">上一页</a>
             <span>{{page}}/{{pageAll}}</span>
@@ -108,17 +114,61 @@
       </div>
       <div class="clear"></div>
     </div>
+    <modal title="我们需要您的意见建议" :show.sync="showAddSuggest" effect="fade" >
+      <div slot="modal-body" class="modal-body">
+        <div class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">真实姓名</label>
+            <div class="col-sm-10">
+              <input class="form-control" v-model="suggestAdd.userName">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">一卡通账号/学号</label>
+            <div class="col-sm-10">
+              <input class="form-control" type=number v-model="suggestAdd.userAccount">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">意见/建议</label>
+            <div class="col-sm-10">
+              <select v-model="suggestAdd.type" class="form-control">
+                <option value="1">建议</option>
+                <option value="2">意见</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">内容</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" v-model="suggestAdd.content" rows="10" placeholder="请填写您的意见或建议"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div slot="modal-footer" class="modal-footer">
+        <button type="button" class="btn btn-default" @click='showAddSuggest = false'>取消</button>
+        <button type="button" class="btn btn-primary" @click='addSuggest()'>确定</button>
+      </div>
+    </modal>
   </div>
 </template>
 <script>
   import Service from '../../../service/service'
+  import Modal from '../../widgets/Modal.vue'
+  import Core from '../../../core/core'
 
   export default {
+    components: {
+      'modal': Modal
+    },
     data () {
       return {
         pageAll: 0,
         page: 0,
-        suggestList: []
+        suggestList: [],
+        showAddSuggest: false,
+        suggestAdd: {type: 1}
       }
     },
     ready () {
@@ -147,6 +197,32 @@
           this.suggestList = data.suggestion_list
           this.pageAll = Math.ceil(data.count / 3)
           this.page += 1
+        })
+      },
+      toggleShowAddSuggest: function () {
+        this.showAddSuggest = true
+      },
+      addSuggest: function () {
+        if (this.suggestAdd.userName === undefined || this.suggestAdd.userName.length <= 0) {
+          Core.Toast.error(this, '请填写姓名')
+          return
+        }
+        if (this.suggestAdd.userAccount === undefined || this.suggestAdd.userAccount.length <= 0) {
+          Core.Toast.error(this, '请填写您的一卡通账号或学号')
+          return
+        }
+        if (this.suggestAdd.content === undefined || this.suggestAdd.content.length <= 0) {
+          Core.Toast.error(this, '请填写内容')
+          return
+        }
+        Service.addSuggest(this, this.suggestAdd.type, this.suggestAdd.userName, this.suggestAdd.userAccount, this.suggestAdd.content, (data) => {
+          Core.Toast.success(this, '感谢您的反馈!')
+          this.showAddSuggest = false
+          Service.getSuggestList(this, 1, (data) => {
+            this.page = 1
+            this.suggestList = data.suggestion_list
+            this.pageAll = Math.ceil(data.count / 3)
+          })
         })
       }
     }
