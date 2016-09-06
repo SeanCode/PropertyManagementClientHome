@@ -132,7 +132,7 @@
         var cur = parseInt(window.$('.style_box').css('left'))
 //        var width = parseInt($('.style_box').css('width'))
         if (Math.abs(cur) !== 0) {
-          window.$('.style_box').animate({'left': '0px'}, this.coverList.length * 1000)
+          window.$('.style_box').animate({'left': '0px'}, this.coverList.length * 400)
         }
       },
       translateRight: function () {

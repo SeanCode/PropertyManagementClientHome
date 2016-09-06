@@ -156,13 +156,13 @@
         }
       },
       query: function () {
-        this.$route.router.go('/home/service?type=1')
+        this.$route.router.go('/home/service/sdq')
       },
       logList: function () {
         this.$route.router.go('/home/articles/30001')
       },
       repair: function () {
-        this.$route.router.go('/home/index')
+        window.open('http://hqwx.cqupt.edu.cn/C24H/ViewRepair')
       }
     }
 
