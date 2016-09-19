@@ -20,7 +20,7 @@
         <div class="query_box">
           <div class="query_account_box">
             <input class="query_account" type=number placeholder="请输入一卡通账号"/>
-            <a href="javascript:;" class="query_account_btn">查询</a>
+            <a href="javascript:;" class="query_account_btn" @click="query()">查询</a>
           </div>
           <div class="time_box">
           </div>
@@ -51,6 +51,9 @@
     methods: {
       report: function () {
         Core.Toast.info(this, '已上报, 也可拨打下面热线, 联系管理员')
+      },
+      query: function () {
+        Core.Toast.info(this, '暂无数据')
       }
     }
   }
