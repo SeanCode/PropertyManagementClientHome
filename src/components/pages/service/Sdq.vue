@@ -10,7 +10,7 @@
 
   .query_account_box {
     display: inline-block;
-    width: 240px;
+    width: auto;
     background-color: #F1F1F1;
     padding: 4px 6px;
   }

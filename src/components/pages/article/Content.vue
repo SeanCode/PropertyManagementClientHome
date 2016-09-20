@@ -87,7 +87,7 @@
   }
 
   .news_img {
-
+    text-align: center;
   }
 
   .news_img ul li {

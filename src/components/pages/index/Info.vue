@@ -1,9 +1,9 @@
 <style>
   .info_container {
     float: left;
-    width: 684px;
+    width: 650px;
     height: 258px;
-    margin-top: 20px;
+    margin-top: 8px;
   }
 
   .info_content {

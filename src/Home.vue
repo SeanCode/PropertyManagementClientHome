@@ -1,6 +1,6 @@
 <template>
   <app-header></app-header>
-  <div class="line"></div>
+  <!--<div class="line"></div>-->
   <app-navigation></app-navigation>
   <app-content></app-content>
   <app-footer></app-footer>

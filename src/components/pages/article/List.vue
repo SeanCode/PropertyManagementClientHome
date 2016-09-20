@@ -94,7 +94,7 @@
     display: inline;
     padding: 24px;
     float: left;
-    width: 996px;
+    width: 960px;
     min-height: 300px;
   }
 

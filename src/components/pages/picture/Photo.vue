@@ -48,14 +48,14 @@
   }
 
   .photo_wrapper {
-    width: 290px;
+    width: 280px;
     height: 200px;
     overflow: hidden;
     margin: 10px 0;
   }
 
   .empty_photo_box {
-    width: 310px;
+    width: 300px;
     height: 242px;
     overflow: hidden;
   }

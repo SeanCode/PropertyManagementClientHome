@@ -1,9 +1,9 @@
 <style>
   .window_container {
     float: left;
-    width: 496px;
+    width: 458px;
     height: 360px;
-    margin-left: 24px;
+    margin-left: 12px;
     border-bottom: 2px solid #bababa;
   }
 

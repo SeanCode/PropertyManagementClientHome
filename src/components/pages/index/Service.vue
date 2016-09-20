@@ -1,10 +1,10 @@
 <style>
   .service_container {
     float: left;
-    width: 496px;
+    width: 458px;
     height: 258px;
-    margin-top: 20px;
-    margin-left: 24px;
+    margin-top: 8px;
+    margin-left: 12px;
   }
 
   .service_content {
@@ -58,7 +58,7 @@
     border-radius: 64px;
     line-height: 64px;
     margin: 0 auto;
-    background-color: #d9d9d9;
+    background-color: #fa9546;
   }
 
   .service_icon > i {
@@ -67,11 +67,11 @@
   }
 
   .service_item:hover > .service_icon {
-    background-color: #fa9546;
+    background-color: #ed7101;
   }
 
   .service_item:hover > p {
-    color: #fa9546;
+    color: #ed7101;
   }
 
   .control_active {

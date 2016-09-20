@@ -1,12 +1,12 @@
 <style>
   #carousel-container {
     float: left;
-    width: 684px;
+    width: 650px;
     height: 360px;
   }
 
   .item > img {
-    width: 684px;
+    width: 650px;
     height: 360px !important;
   }
 

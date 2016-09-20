@@ -6,7 +6,7 @@
 
   header > img:nth-of-type(1) {
     position: absolute;
-    width: 1204px;
+    width: 1120px;
     height: 180px;
     left: 0;
     top: 0;

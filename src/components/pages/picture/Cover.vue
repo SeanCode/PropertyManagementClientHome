@@ -1,11 +1,5 @@
 <style>
 
-  .empty_cover_box {
-    width: 460px;
-    height: 322px;
-    overflow: hidden;
-  }
-
   .cover_box {
     text-align: center;
     float: left;
@@ -23,7 +17,7 @@
   }
 
   .cover_wrapper {
-    width: 420px;
+    width: 400px;
     height: 240px;
     overflow: hidden;
     position: relative;
@@ -74,6 +68,13 @@
 
   .photo_pagination {
     margin-right: 25px;
+  }
+
+  .empty_cover_box {
+    width: 440px;
+    height: 322px;
+    overflow: hidden;
+    cursor: auto;
   }
 </style>
 <template>

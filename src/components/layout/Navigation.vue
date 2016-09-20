@@ -24,7 +24,7 @@
     position: relative;
     display: block;
     float: left;
-    width: 172px;
+    width: 160px;
     height: 100%;
     text-align: center;
   }

@@ -1,9 +1,9 @@
 <style>
   .us_container {
     float: left;
-    height: 286px;
+    height: 256px;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 8px;
   }
 
   .us_container:after {
@@ -18,7 +18,7 @@
     position: absolute;
     width: 100%;
     height: 180px;
-    margin-top: 32px;
+    margin-top: 16px;
     overflow: hidden;
   }
 
@@ -29,7 +29,7 @@
   .style_item {
     position: relative;
     float: left;
-    width: 256px;
+    width: 246px;
     height: 170px;
     margin-right: 20px;
     text-align: center;

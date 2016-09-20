@@ -5,7 +5,7 @@
   }
 
   .container {
-    width: 1204px;
+    width: 1120px;
     padding: 0;
     position: relative;
   }
