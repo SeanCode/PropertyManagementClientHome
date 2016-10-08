@@ -140,7 +140,6 @@
           </li>
         </ul>
       </div>
-      <div class="empty_title_box"></div>
       <div class="news_list_container">
         <div class="news_title_container">
           <div class="news_title">{{article.title}}</div>

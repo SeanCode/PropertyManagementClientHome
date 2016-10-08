@@ -19,14 +19,6 @@
     clear: both;
   }
 
-  .empty_title_box {
-    display: inline-block;
-    margin: 16px 0;
-    width: 160px;
-    height: 160px;
-    float: left;
-  }
-
   .title_box {
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -34,7 +26,6 @@
     -webkit-box-shadow: 1px 1px 3px #666;
     -moz-box-shadow: 1px 1px 3px #666;
     box-shadow: 1px 1px 3px #666;
-    display: inline-block;
     margin: 16px 0;
     width: 160px;
     position: fixed;
@@ -96,6 +87,7 @@
     float: left;
     width: 960px;
     min-height: 300px;
+    margin-left: 160px;
   }
 
   .news_list_container li {
@@ -162,7 +154,6 @@
           </li>
         </ul>
       </div>
-      <div class="empty_title_box"></div>
       <div class="news_list_container">
         <ul>
           <li class="news_list" v-for="article in articleList">
