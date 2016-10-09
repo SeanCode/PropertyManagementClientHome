@@ -186,7 +186,7 @@
         var type = transition.to.params.type
         var page = transition.to.query.page
         if (page === undefined || page < 1) {
-          page = 1
+          page = 0
         }
         Service.validate(type, (cat, titles, head) => {
           transition.next({
@@ -217,10 +217,15 @@
     },
     ready () {
       this.title = this.list[this.category - 1]
-      Service.getArticleList(this, this.type, this.page, (data) => {
-        this.articleList = data.article_list
-        this.pageAll = Math.ceil(data.count / 10)
-      })
+//      Service.getArticleList(this, this.type, 1, (data) => {
+//        this.articleList = data.article_list
+//        this.pageAll = Math.ceil(data.count / 10)
+//        if (data.article_list.length > 0) {
+//          this.page = 1
+//        } else {
+//          this.page = 0
+//        }
+//      })
     },
     watch: {
       type: function (type) {
@@ -233,7 +238,11 @@
         Service.getArticleList(this, this.type, 1, (data) => {
           this.articleList = data.article_list
           this.pageAll = Math.ceil(data.count / 10)
-          this.page = 1
+          if (data.article_list.length > 0) {
+            this.page = 1
+          } else {
+            this.page = 0
+          }
         })
       }
     },

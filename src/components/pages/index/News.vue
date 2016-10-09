@@ -164,7 +164,7 @@
       moreLink: function () {
         var link = ''
         if (this.showNews) {
-          link = '/home/articles/20001'
+          link = '/home/articles/20002'
         } else if (this.showDownload) {
           link = '/home/articles/10004'
         }

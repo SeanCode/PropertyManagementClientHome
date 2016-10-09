@@ -11,7 +11,7 @@ export default {
 
 var newsTitles = ['新闻热点', '公示公告']
 var guideTitles = ['政策法规', '工作简报', '流程指南', '相关下载', '网上保修']
-var logTitles = ['特种设备', '教学巡查', '公寓巡查', '物业巡查']
+var logTitles = ['特种设备', '消防安全', '教学巡查', '公寓巡查', '物业巡查']
 
 function validate (type, callback) {
   var kind = Math.floor(type / 10000)
