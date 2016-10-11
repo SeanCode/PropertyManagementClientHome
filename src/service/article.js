@@ -6,7 +6,9 @@ import Core from '../core/core'
 export default {
   validate: validate,
   getArticleList: getArticleList,
-  getArticleContent: getArticleContent
+  getArticleContent: getArticleContent,
+  getLatestTitleList: getLatestTitleList,
+  getArticleLatest: getArticleLatest
 }
 
 var newsTitles = ['新闻热点', '公示公告']
@@ -66,5 +68,15 @@ function getArticleContent (context, type, id, cb) {
     cb(data)
   }, (error) => {
     Core.Toast.error(context, error.message)
+  })
+}
+
+function getLatestTitleList () {
+  return newsTitles.concat(guideTitles).concat(logTitles)
+}
+
+function getArticleLatest (page, cb) {
+  Core.Api.ARTICLE.getArticleLatest(page).then((data) => {
+    cb(data)
   })
 }

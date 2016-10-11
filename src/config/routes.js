@@ -6,6 +6,8 @@ import Home from '../Home.vue'
 import Index from '../components/pages/index/Index.vue'
 import ArticleList from '../components/pages/article/List.vue'
 import ArticleContent from '../components/pages/article/Content.vue'
+import ArticleLatestList from '../components/pages/article/LatestList.vue'
+import ArticleLatestContent from '../components/pages/article/LastestContent.vue'
 import Institution from '../components/pages/institution/Institution.vue'
 import Sdq from '../components/pages/service/Sdq.vue'
 import Tax from '../components/pages/service/Tax.vue'
@@ -58,6 +60,12 @@ export function configRouter (router) {
         },
         '/articles/:type/:id': {
           component: ArticleContent
+        },
+        '/articles/latest': {
+          component: ArticleLatestList
+        },
+        'articles/latest/:type/:id': {
+          component: ArticleLatestContent
         }
       }
     }

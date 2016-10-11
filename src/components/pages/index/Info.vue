@@ -92,7 +92,7 @@
       moreLink: function () {
         var link = ''
         if (this.showLatest) {
-          link = '/home/articles/20001'
+          link = '/home/articles/latest'
         } else if (this.showPrompt) {
           link = '/home/articles/10003'
         } else if (this.showRules) {
