@@ -67,6 +67,20 @@
     color: #666666;
   }
 
+  .news_index_title {
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+    width: auto;
+    max-width: 350px;
+    overflow: hidden;
+    margin-bottom: -4px;
+  }
+
+  .news_index_title_new {
+    max-width: 320px;
+  }
+
   .news_index_date {
     float: right;
     width: 80px;
@@ -109,7 +123,7 @@
       <ul>
         <li class="news_index_list" v-for="article in articleList">
           <div v-if="$index < 7">
-            <a href="javascript:;" @click="goToContent(article)"><span>{{article.title}}</span>
+            <a href="javascript:;" @click="goToContent(article)"><span class="news_index_title" v-bind:class="{'news_index_title_new': article.is_new}">{{article.title}}</span>
               <app-flag v-if="article.is_new"></app-flag>
             </a>
             <span class="news_index_date">{{article.create_time_formated}}</span>

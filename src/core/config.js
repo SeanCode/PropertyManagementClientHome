@@ -5,9 +5,9 @@ export default {
   ROUTE_LIST_GUEST_CAN_VISIT: ['/login'],
   IS_DEBUG: true,
   BANNER_LIST: [
-    {data: '../../../assets/carousel_1.png'},
-    {data: '../../../assets/carousel_2.png'},
-    {data: '../../../assets/carousel_3.png'},
-    {data: '../../../assets/carousel_4.png'}
+    {data: '../../../static/res/img/carousel_1.png'},
+    {data: '../../../static/res/img/carousel_2.png'},
+    {data: '../../../static/res/img/carousel_3.png'},
+    {data: '../../../static/res/img/carousel_4.png'}
   ]
 }

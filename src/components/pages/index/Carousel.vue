@@ -62,7 +62,7 @@
     },
     methods: {
       bannerUrl: function (url) {
-        if (!url.startsWith('img')) {
+        if (url.match('^img') !== 'img') {
           return url
         }
         if (Core.Config.IS_DEBUG) {

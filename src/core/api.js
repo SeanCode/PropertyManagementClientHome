@@ -92,7 +92,7 @@ function get (api, params, requestHeaders, raw) {
     return raw ? response : response.data.data
   }, function (error) {
     Log.e(error)
-    return error
+    return Promise.reject(error)
   })
 }
 
